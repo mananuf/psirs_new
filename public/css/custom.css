@@ -1,0 +1,13 @@
+.logo-w-35{
+    width: 35%;
+}
+.small-logo {
+    top: 10px;
+    left: 0;
+    z-index: 999;
+    position: absolute;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none
+}
