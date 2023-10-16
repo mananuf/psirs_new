@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', MainController::class)->name('home');
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dash',function(){
+    return view('admin.dashboard');
+
+});
