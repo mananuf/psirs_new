@@ -54,17 +54,17 @@ class manageImagesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(image $image)
     {
-        //
+        return view('admin.blog.images.show',compat('image'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(image $image)
     {
-        //
+        return view('admin.blog.images.show',compat('image'));
     }
 
     /**
@@ -74,6 +74,8 @@ class manageImagesController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id'=> 'required'
         ]);
 
         $input = $request->all();
@@ -99,5 +101,6 @@ class manageImagesController extends Controller
     public function destroy(image $image)
     {
         $image->delete();
+        return redirect()->back();
     }
 }

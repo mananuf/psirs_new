@@ -11,7 +11,7 @@ class categoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.blog.category.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class categoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blog.category.create');
     }
 
     /**
@@ -27,38 +27,55 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required'
+        ]);
+        category::create($request->all());
+        return redirect()->route('category.index')
+        ->with('success','category created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(category $category)
     {
-        //
+        return view('admin.blog.category.show',compat('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(category $category)
     {
-        //
+        return view('admin.blog.category.show','category');
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $input = $request->all();
+
+        $category->create($input);
+
+        return redirect()->route('category.index')
+                        ->with('success','post created successfully.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(category $category)
     {
-        //
+            $category->destroy();
+            return redirect()->back();
     }
 }

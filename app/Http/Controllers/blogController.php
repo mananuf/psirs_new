@@ -54,32 +54,45 @@ class blogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(blog $blog)
     {
-        //
+        return view('admin.blog.show',compact('blog'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(blog $blog)
     {
-        //
+        return view('admin.blog.edit',compact('blog'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, blog $blog)
     {
-        //
+        // $blog = blog::find($id);
+
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $blog->update($request->all());
+        return redirect()->route('blogs.index')
+        ->with('success','updated successfully.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(blog $blog)
     {
-        //
+     $blog->destroy();
+     return redirect()->back();
     }
 }
