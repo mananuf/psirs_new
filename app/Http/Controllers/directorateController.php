@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{blog,image};
+use App\Models\directorate;
 
-class blogController extends Controller
+class directorateController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $blogs = blog::all();
-        return view('admin.dashboard', compact('blogs'));
+        $directorates = directorate::all();
+        return view('admin.directorate.index',compact('directorates'));
     }
 
     /**
@@ -21,7 +21,7 @@ class blogController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        return view('admin.directorate.create');
     }
 
     /**
@@ -70,40 +70,37 @@ class blogController extends Controller
 
 
        $content = $dom->saveHTML();
-       $blog = blog::create([
+       $directorate = directorate::create([
             'title' => $request->title,
             'body' => $content
        ]);
 
+
         return redirect()->back()
                         ->with('success','post created successfully.');
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(blog $blog)
+    public function show(directorate $directorate)
     {
-        return view('admin.blog.show',compact('blog'));
+        return view('admin.directorate.show',compact('directorate'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(blog $blog)
+    public function edit(directorate $directorate)
     {
-        return view('admin.blog.edit',compact('blog'));
-
+        return view('admin.directorate.edit',compact('directorate'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, blog $blog)
+    public function update(Request $request, directorate $directorate)
     {
-        // $blog = blog::find($id);
-
         $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -148,20 +145,21 @@ class blogController extends Controller
 
 
        $content = $dom->saveHTML();
-       $blog->title = $request->title;
-       $blog->body = $content;
-       $blog->save();
+       $directorate->title = $request->title;
+       $directorate->body = $content;
+       $directorate->save();
         return redirect()->back()
         ->with('success','updated successfully.');
+
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(blog $blog)
+    public function destroy(directorate $directorate)
     {
-     $blog->destroy();
-     return redirect()->back();
+        $directorate->destroy();
+        return redirect()->back();
     }
 }

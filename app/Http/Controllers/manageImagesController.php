@@ -81,9 +81,8 @@ class manageImagesController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $images = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $images);
+            $imageName = time().'.'.$request->image->extension();
+            $images = $request->image->storeAs('images', $imageName);
             $input['image'] = "$images";
         }else{
             unset($input['image']);

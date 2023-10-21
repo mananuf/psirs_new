@@ -8,13 +8,17 @@ use App\Http\Controllers\blogController;
 
 Route::get('/', MainController::class)->name('home');
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/images',manageImagesController::class);
 Route::resource('/category',categoryController::class);
-Route::resource('/blog',blogController::class);
+Route::resource('blog',blogController::class);
 Route::get('/dash',function(){
     return view('admin.dashboard');
+
+});
+Route::get('/create',function(){
+    return view('admin.blog.create');
 
 });
