@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div style="margin: 100px">
-<form class="row g-3" method="POST" action="{{route('blog.update')}}">
+<form class="row g-3" method="POST" action="{{route('blog.update',$blog->id)}}">
     @csrf
     <div class="col-md-6">
       <label for="title" class="form-label">TITLE</label>
@@ -17,7 +17,7 @@
       </div> --}}
     <div class="col-12">
         <label><strong>Conent :</strong></label>
-        <textarea class="summernote" name="body" value="{{$blog->body}}"></textarea>
+        <textarea class="summernote" name="body">{{$blog->body}}</textarea>
     </div>
     {{-- <div class="col-md-6">
       <label for="inputCity" class="form-label">City</label>

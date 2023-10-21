@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div style="margin: 100px">
-<form class="row g-3" method="POST" action="{{route('blog.store')}}">
+    <div style="margin: 10px;"><a class="btn btn-primary " href="{{route('directorate.index')}}">back</a></div>
+<form class="row g-3" method="POST" action="{{route('directorate.store')}}">
     @csrf
     <div class="col-md-6">
       <label for="title" class="form-label">TITLE</label>

@@ -1,8 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div style="margin: 100px">
-<form class="row g-3" method="POST" action="{{route('directorate.update')}}">
+<form class="row g-3" method="POST" action="{{route('directorate.update',$directorate->id)}}">
     @csrf
+    @method('PUT')
     <div class="col-md-6">
       <label for="title" class="form-label">TITLE</label>
       <input type="text" value="{{$directorate->title}}" name="title" class="form-control" id="inputEmail4">
@@ -17,7 +18,7 @@
       </div> --}}
     <div class="col-12">
         <label><strong>Conent :</strong></label>
-        <textarea class="summernote" name="body" value="{{$directorate->body}}"></textarea>
+        <textarea class="summernote" name="body">{{$directorate->body}}</textarea>
     </div>
     {{-- <div class="col-md-6">
       <label for="inputCity" class="form-label">City</label>

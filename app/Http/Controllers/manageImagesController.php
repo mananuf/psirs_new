@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\image;
+use App\Models\{image,category};
 
 class manageImagesController extends Controller
 {
@@ -21,7 +21,8 @@ class manageImagesController extends Controller
      */
     public function create()
     {
-        return view('admin.images.create');
+        $categories = category::all();
+        return view('admin.images.create',compact('categories'));
     }
 
     /**
@@ -56,7 +57,7 @@ class manageImagesController extends Controller
      */
     public function show(image $image)
     {
-        return view('admin.blog.images.show',compat('image'));
+        return view('admin.blog.images.show',compact('image'));
     }
 
     /**
@@ -64,7 +65,7 @@ class manageImagesController extends Controller
      */
     public function edit(image $image)
     {
-        return view('admin.blog.images.show',compat('image'));
+        return view('admin.blog.images.show',compact('image'));
     }
 
     /**
