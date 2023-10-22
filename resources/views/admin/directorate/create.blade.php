@@ -2,6 +2,18 @@
 @section('content')
 <div style="margin: 100px">
     <div style="margin: 10px;"><a class="btn btn-primary " href="{{route('directorate.index')}}">back</a></div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error )
+            <li>{{$error}}</li>
+
+            @endforeach
+        </ul>
+
+    </div>
+
+    @endif
 <form class="row g-3" method="POST" action="{{route('directorate.store')}}">
     @csrf
     <div class="col-md-6">

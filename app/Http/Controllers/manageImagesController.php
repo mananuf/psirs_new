@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{image,category};
+use Illuminate\Support\Facades\Storage;
 
 class manageImagesController extends Controller
 {
@@ -30,24 +31,26 @@ class manageImagesController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|max:2048|mimes:jpg,jpeg,png',
             'category_id'=> 'required'
         ]);
 
         $input = $request->all();
+        // dd($input);
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $psirs_image = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $psirs_image);
-            $input['image'] = "$psirs_image";
+        if ($request->hasFile('image')) {
+            // put image in the public storage
+           $filePath = Storage::disk('public')->put('images', request()->file('image'));
+
+            $input['image'] = $filePath;
         }
 
         image::create($input);
 
-        return redirect()->route('images.index')
+        return redirect()->back()
                         ->with('success','image created successfully.');
 
     }
@@ -81,13 +84,14 @@ class manageImagesController extends Controller
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $imageName = time().'.'.$request->image->extension();
-            $images = $request->image->storeAs('images', $imageName);
-            $input['image'] = "$images";
-        }else{
-            unset($input['image']);
+        if ($request->hasFile('image')) {
+            // put image in the public storage
+            Storage::disk('public')->delete($image->image);
+            $filePath = Storage::disk('public')->put('images', request()->file('image'));
+
+            $input['image'] = $filePath;
         }
+
 
         $image->update($input);
 
@@ -100,6 +104,7 @@ class manageImagesController extends Controller
      */
     public function destroy(image $image)
     {
+        Storage::disk('public')->delete($image->image);
         $image->delete();
         return redirect()->back();
     }

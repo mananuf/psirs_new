@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class image extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','image'];
+    protected $fillable = ['name','image','category_id'];
 
     /**
      * Get the category that owns the image

@@ -14,13 +14,22 @@ class blogController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = blog::select('*');
+            $data = blog::all();
             // dd($data);
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
 
-                            $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+                            $btn = '<a href="'.route('blog.edit',$row->id).'" class="edit btn btn-primary btn-sm">Edit</a>'.
+                            '<div class = "hello">'.
+                              '<form action="'.route('blog.destroy', $row->id).'" method="post">
+                              '.csrf_field().'
+                              '.method_field("DELETE").'
+
+                                   <button class="btn btn-danger btn-delete"><i
+                                       class="fas fa-trash"></i></button>'.
+                               '</form>'.
+                             '</div>';
 
                             return $btn;
                     })
@@ -176,7 +185,7 @@ class blogController extends Controller
      */
     public function destroy(blog $blog)
     {
-     $blog->destroy();
+     $blog->delete();
      return redirect()->back();
     }
 }

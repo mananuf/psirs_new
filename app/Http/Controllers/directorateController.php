@@ -149,7 +149,7 @@ class directorateController extends Controller
        $directorate->title = $request->title;
        $directorate->body = $content;
        $directorate->save();
-        return redirect()->back()
+        return redirect()->to('blog')
         ->with('success','updated successfully.');
 
 
@@ -160,7 +160,8 @@ class directorateController extends Controller
      */
     public function destroy(directorate $directorate)
     {
-        $directorate->destroy();
-        return redirect()->back();
+        $directorate->delete();
+        return redirect()->back()->with('success','directorate deleted successfully');
     }
 }
+

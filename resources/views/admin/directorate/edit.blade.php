@@ -1,6 +1,18 @@
 @extends('layouts.master')
 @section('content')
 <div style="margin: 100px">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error )
+            <li>{{$error}}</li>
+
+            @endforeach
+        </ul>
+
+    </div>
+
+    @endif
 <form class="row g-3" method="POST" action="{{route('directorate.update',$directorate->id)}}">
     @csrf
     @method('PUT')
