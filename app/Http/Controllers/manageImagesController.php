@@ -60,21 +60,23 @@ class manageImagesController extends Controller
      */
     public function show(image $image)
     {
-        return view('admin.blog.images.show',compact('image'));
+        return view('admin.images.show',compact('image'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(image $image)
+    public function edit(image $imagess)
     {
-        return view('admin.blog.images.show',compact('image'));
+        // dd($image);
+        $categories = category::all();
+        return view('admin.images.edit',compact('imagess','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, image $image)
+    public function update(Request $request, image $imagess)
     {
         $request->validate([
             'name' => 'required',
@@ -86,26 +88,28 @@ class manageImagesController extends Controller
 
         if ($request->hasFile('image')) {
             // put image in the public storage
-            Storage::disk('public')->delete($image->image);
+            Storage::disk('public')->delete($imagess->image);
             $filePath = Storage::disk('public')->put('images', request()->file('image'));
 
             $input['image'] = $filePath;
         }
+        // dd($filePath);
 
 
-        $image->update($input);
+        $imagess->save($input);
 
-        return redirect()->route('images.index')
+        return redirect()->route('imagess.index')
                         ->with('success',' updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(image $image)
+    public function destroy(image $imagess)
     {
-        Storage::disk('public')->delete($image->image);
-        $image->delete();
+        // dd($image);
+        Storage::disk('public')->delete($imagess->image);
+        $imagess->delete();
         return redirect()->back();
     }
 }

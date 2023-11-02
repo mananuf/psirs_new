@@ -24,7 +24,7 @@
                     images
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="{{route('directorate.index')}}">
+                <a class="nav-link collapsed" href="{{route('directorates.index')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Directorates
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>

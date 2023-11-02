@@ -48,15 +48,7 @@
       <input type="text" class="form-control" id="inputZip">
     </div> --}}
     <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Sign in</button>
+      <button type="submit" class="btn btn-primary">upload</button>
     </div>
   </form>
 </div>

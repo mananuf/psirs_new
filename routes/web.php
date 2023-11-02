@@ -11,11 +11,11 @@ Route::get('/', MainController::class)->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/imagess',manageImagesController::class);
-Route::resource('/category',categoryController::class);
-Route::resource('blog',blogController::class);
-Route::resource('directorate',directorateController::class);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::resource('/imagess',manageImagesController::class)->middleware('auth');
+Route::resource('/category',categoryController::class)->middleware('auth');
+Route::resource('/blog',blogController::class)->middleware('auth');
+Route::resource('directorates',directorateController::class)->middleware('auth');
 Route::get('/dash',function(){
     return view('admin.dashboard');
 

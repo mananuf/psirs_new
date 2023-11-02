@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid px-4">
     <h1>Directorates</h1>
-    <div style="margin: 10px; position: relative;left:1025px;"><a class="btn btn-primary " href="{{route('directorate.create')}}">add Directorate</a></div>
+    <div style="margin: 10px; margin: 10px; margin-left:905px;"><a class="btn btn-primary " href="{{route('directorates.create')}}">add Directorate</a></div>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -17,11 +17,11 @@
             <td>{{$directorate->id}}</td>
             <td>{{$directorate->title}}</td>
             <td>
-                <form action="{{ route('directorate.destroy',$directorate->id) }}" method="POST">
+                <form action="{{ route('directorates.destroy',$directorate->id) }}" method="POST">
 
                 {{-- <a class="btn btn-info" href="{{ route('directorates.show',$directorate->id) }}">Show</a> --}}
 
-                <a class="btn btn-primary" href="{{ route('directorate.edit',$directorate->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('directorates.edit',$directorate->id) }}">Edit</a>
 
                 @csrf
                 @method('DELETE')

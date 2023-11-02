@@ -34,7 +34,7 @@
         <input type="file" name="image" class="form-control" id="inputCity">
       </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">post</button>
+      <button type="submit" class="btn btn-primary">upload</button>
     </div>
   </form>
 </div>
