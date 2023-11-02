@@ -95,7 +95,9 @@ class usersController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-        $user->update($request->all());
+        $input = $request->all();
+        $Input['password'] = Hash::make($request->password);
+        $user->update($input);
 
         return redirect()->to('user.index')->with('success', 'user credentials updated');
 
