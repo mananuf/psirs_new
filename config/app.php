@@ -61,10 +61,10 @@ return [
     'email' => env('PSIRS_EMAIL', 'info@psirs.gov.ng'),
     'contact_1' => env('PSIRS_CONTACT_1','+234 8031230301'),
     'contact_2' => env('PSIRS_CONTACT_2', '+234 7056990777'),
-    'facebook_url' => env('PSIRS_FACEBOOK_URL', ''),
-    'linkedin_url' => env('PSIRS_LINKEDIN_URL', ''),
-    'twitter_url' => env('PSIRS_TWITTER_URL', ''),
-    'instagram_url' => env('PSIRS_INSTAGRAM_URL', ''),
+    'facebook_url' => env('PSIRS_FACEBOOK_URL', 'https://www.facebook.com/psirs.info'),
+    'linkedin_url' => env('PSIRS_LINKEDIN_URL', 'https://www.linkedin.com/company/psirsofficial/'),
+    'twitter_url' => env('PSIRS_TWITTER_URL', 'https://twitter.com/OfficialPSIRS'),
+    'instagram_url' => env('PSIRS_INSTAGRAM_URL', 'https://www.instagram.com/psirsofficialhqtr'),
 
     /*
     |--------------------------------------------------------------------------

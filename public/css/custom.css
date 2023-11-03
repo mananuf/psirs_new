@@ -11,3 +11,15 @@
     text-transform: uppercase;
     text-decoration: none
 }
+
+.link-color-green{
+    color: #00aa55;
+}
+
+.link-color-green:hover{
+    color: #ababab !important;
+}
+
+.light-green {
+    color: #82d7ad58;
+}
