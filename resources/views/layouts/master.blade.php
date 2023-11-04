@@ -59,22 +59,7 @@
 
         });
       </script> --}}
-    <script type="text/javascript">
-         $(function () {
-
-      var table = $('.data-table').DataTable({
-          processing: true,
-          serverSide: true,
-          ajax: "{{ route('blog.index') }}",
-          columns: [
-              {data: 'id', name: 'id'},
-              {data: 'title', name: 'title'},
-              {data: 'action', name: 'action', orderable: false, searchable: true},
-          ]
-      });
-
-    });
-    </script>
+  
     <script type="text/javascript">
         $(document).ready(function() {
           $('.summernote').summernote();

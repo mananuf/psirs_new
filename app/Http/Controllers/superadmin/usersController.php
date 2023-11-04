@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use DataTables;
 
 class usersController extends Controller
 {
@@ -38,7 +39,7 @@ class usersController extends Controller
                     ->make(true);
         }
 
-        return view('admin.dashboard');
+        return view('superadmin.user.index');
     }
 
     /**
@@ -82,7 +83,7 @@ class usersController extends Controller
      */
     public function edit(User $user)
     {
-        return view('superadmin.user.edit');
+        return view('superadmin.user.edit', compact('user'));
     }
 
     /**

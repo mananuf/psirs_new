@@ -8,6 +8,13 @@
                     Dashboard
                 </a>
                 <div class="sb-sidenav-menu-heading">content</div>
+                @if (Auth::user()->is_superAdmin == 1)
+                <a class="nav-link collapsed" href="{{route('user.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    Users
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                @else
                 <a class="nav-link collapsed" href="{{route('blog.index')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Posts
@@ -29,6 +36,10 @@
                     Directorates
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
+
+                @endif
+
+
                 {{-- <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
@@ -55,7 +66,7 @@
                         </div>
                     </nav>
                 </div> --}}
-                <div class="sb-sidenav-menu-heading">Addons</div>
+                {{-- <div class="sb-sidenav-menu-heading">Addons</div>
                 <a class="nav-link" href="charts.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Charts
@@ -63,12 +74,11 @@
                 <a class="nav-link" href="tables.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Tables
-                </a>
+                </a> --}}
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
+            <div class="small">Logged in as: {{Auth::user()->name}}</div>
         </div>
     </nav>
 </div>

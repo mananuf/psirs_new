@@ -1,13 +1,15 @@
+
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid px-4">
-    <h1>Blog posts</h1>
-    <div style="margin: 10px; margin-left:905px;"><a class="btn btn-primary" href="{{route('blog.create')}}">add post</a></div>
+    <h1>Users</h1>
+    <div style="margin: 10px; margin-left:905px;"><a class="btn btn-primary" href="{{route('user.create')}}">add user</a></div>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Name</th>
+                <th>Email</th>
                 <th width="100px">Action</th>
             </tr>
         </thead>
@@ -22,10 +24,11 @@
  var table = $('.data-table').DataTable({
      processing: true,
      serverSide: true,
-     ajax: "{{ route('blog.index') }}",
+     ajax: "{{ route('user.index') }}",
      columns: [
          {data: 'id', name: 'id'},
-         {data: 'title', name: 'title'},
+         {data: 'name', name: 'name'},
+         {data: 'email', name: 'email'},
          {data: 'action', name: 'action', orderable: false, searchable: true},
      ]
  });
