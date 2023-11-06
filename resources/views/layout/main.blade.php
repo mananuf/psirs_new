@@ -150,7 +150,7 @@
         }
         toastr.warning("{{ session('warning') }}");
         @endif
-        toastr.success("This is a test success message.");
+        
     </script>
 </body>
 
