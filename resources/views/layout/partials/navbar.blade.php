@@ -59,7 +59,7 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">{{__('Tax Calculator')}} </a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">{{__('Individual Calculator')}}</a></li>
+                                <li class="nav-item"><a href="{{route('individual.tax-calculator')}}" class="nav-link">{{__('Individual Calculator')}}</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">{{__('Organization Mandate')}}</a></li>
                             </ul>
                         </li>

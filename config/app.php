@@ -65,6 +65,7 @@ return [
     'linkedin_url' => env('PSIRS_LINKEDIN_URL', 'https://www.linkedin.com/company/psirsofficial/'),
     'twitter_url' => env('PSIRS_TWITTER_URL', 'https://twitter.com/OfficialPSIRS'),
     'instagram_url' => env('PSIRS_INSTAGRAM_URL', 'https://www.instagram.com/psirsofficialhqtr'),
+    'currency_symbol' => env('CURRENCY_SYMBOL', '₦'),
 
     /*
     |--------------------------------------------------------------------------
