@@ -13,12 +13,12 @@
     </div>
 
     @endif
-<form class="row g-3" method="POST" action="{{route('imagess.update',$imagess->id)}}" enctype="multipart/form-data">
+<form class="row g-3" method="POST" action="{{route('images.update',$images->id)}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="col-md-6">
       <label for="title" class="form-label">TITLE</label>
-      <input type="text" value="{{$imagess->name}}" name="name" class="form-control" id="inputEmail4">
+      <input type="text" value="{{$images->name}}" name="name" class="form-control" id="inputEmail4">
     </div>
     {{-- <div class="col-md-6">
       <label for="inputPassword4" class="form-label">Password</label>
@@ -27,16 +27,16 @@
     <div class="col-md-4">
         <label for="inputState" class="form-label">Image category</label>
         <select  name="category_id" id="inputState" class="form-select">
-            <option selected value="{{$imagess->category_id}}">{{$imagess->category->name}}</option>
+            <option selected value="{{$images->category_id}}">{{$images->category->name}}</option>
           @foreach($categories as $category)
           <option value="{{$category->id}}">{{$category->name}}</option>
           @endforeach
         </select>
       </div>
     <div class="col-md-6">
-        <img class="card-img-top" src="{{ Storage::url($imagess->image) }}" alt="Card image cap" style="height: 250px">
+        <img class="card-img-top" src="{{ Storage::url($images->image) }}" alt="Card image cap" style="height: 250px">
         <label for="inputCity" class="form-label">Featured image</label>
-        <input type="file" name="image" class="form-control" id="inputCity" value="{{$imagess->name}}">
+        <input type="file" name="image" class="form-control" id="inputCity" value="{{$images->name}}">
       </div>
 
     {{-- <div class="col-md-6">

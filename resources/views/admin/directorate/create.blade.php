@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div style="margin: 100px">
-    <div style="margin: 10px;"><a class="btn btn-primary " href="{{route('directorate.index')}}">back</a></div>
+    <div style="margin: 10px;"><a class="btn btn-primary " href="{{route('directorates.index')}}">back</a></div>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -14,7 +14,7 @@
     </div>
 
     @endif
-<form class="row g-3" method="POST" action="{{route('directorate.store')}}">
+<form class="row g-3" method="POST" action="{{route('directorates.store')}}">
     @csrf
     <div class="col-md-6">
       <label for="title" class="form-label">TITLE</label>

@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     {{-- styles --}}
     <link rel="stylesheet" href="{{asset('css/design.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">

@@ -20,10 +20,10 @@ Route::resource('/blog',blogController::class)->middleware('auth');
 Route::resource('directorates',directorateController::class)->middleware('auth');
 Route::resource('user',usersController::class)->middleware(['auth','superAdmin']);
 
-Route::get('/dash',function(){
-    return view('admin.dashboard');
+// Route::get('/dash',function(){
+//     return view('admin.dashboard');
 
-});
+// });
 Route::get('/create',function(){
     return view('admin.blog.create');
 
