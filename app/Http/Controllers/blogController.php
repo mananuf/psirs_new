@@ -37,7 +37,7 @@ class blogController extends Controller
                     ->make(true);
         }
 
-        return view('admin.dashboard');
+        return view('layout.dashboard.master');
     }
 
     /**

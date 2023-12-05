@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class category extends Model
+class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
@@ -17,6 +17,6 @@ class category extends Model
      */
     public function images()
     {
-        return $this->hasMany(image::class);
+        return $this->hasMany(Image::class);
     }
 }

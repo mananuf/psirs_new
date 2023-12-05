@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\manageImagesController;
@@ -20,10 +21,10 @@ Route::resource('/blog',blogController::class)->middleware('auth');
 Route::resource('directorates',directorateController::class)->middleware('auth');
 Route::resource('user',usersController::class)->middleware(['auth','superAdmin']);
 
-// Route::get('/dash',function(){
-//     return view('admin.dashboard');
+Route::controller(DashboardController::class)->prefix('admin')->as('admin.')->group(function () {
+    Route::get('dashboard', 'index')->name('dashboard');
+});
 
-// });
 Route::get('/create',function(){
     return view('admin.blog.create');
 

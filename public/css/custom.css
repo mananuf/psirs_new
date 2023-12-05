@@ -13,16 +13,10 @@
 }
 
 .dark-green-bg{
-    background-color: #036333;
+    background-color: #01592a;
     color: #fff;
 }
 
-.dark-green-bg a{
-    color: #fff;
-}
-
-.dark-green-bg .sb-sidenav-menu-heading {
-    font-size: 1rem !important;
-    font-weight: bolder !important;
-    color: #d9d7d7;
+.dark-green-text {
+    color: #01592a;
 }
