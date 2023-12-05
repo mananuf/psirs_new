@@ -18,7 +18,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                     <a href="#apps" data-bs-title="Apps" data-bs-toggle="tooltip" data-bs-placement="right"
                         data-bs-trigger="hover" class="menu-link">
                         <span class="menu-icon"><i data-feather="grid"></i></span>
@@ -58,7 +58,7 @@
                         data-bs-trigger="hover" class="menu-link">
                         <span class="menu-icon"><i data-feather="gift"></i></span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
@@ -89,10 +89,25 @@
                             <span class="menu-text">{{__('Home')}}</span>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-text">{{__('Directorates')}}</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-text">{{__('Gallery')}}</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-text">{{__('Posts')}}</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
-            <div class="twocolumn-menu-item" id="apps">
+            {{-- <div class="twocolumn-menu-item" id="apps">
                 <ul class="menu">
                     <li class="menu-title">Apps</li>
                     <li class="menu-item">
@@ -1039,7 +1054,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
 
         </div>
 
