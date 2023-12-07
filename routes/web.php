@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\TaxCalculatorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\manageImagesController;
 use  App\Http\Controllers\categoryController;
@@ -28,4 +29,9 @@ Route::controller(DashboardController::class)->prefix('admin')->as('admin.')->gr
 Route::get('/create',function(){
     return view('admin.blog.create');
 
+});
+
+Route::controller(TaxCalculatorController::class)->prefix('tax-calculator')->group(function () {
+    Route::get('/', 'index')->name('individual.tax-calculator');
+    Route::post('/calculate', 'calculate')->name('calculate.tax');
 });

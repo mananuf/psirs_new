@@ -1,65 +1,206 @@
 @extends('layout.main')
 @section('content')
     <section class="banner bg-f9fbfe">
-    <div class="container-fluid">
-    <div class="row align-items-center">
-    <div class="col-lg-6">
-    <div class="banner-text-area banner-text-area-3">
-    <h6>{{__('WELCOME TO')}}</h6>
-    <h1>{{__('Plateau State Internal Revenue Service')}}</h1>
-    <p>
-        {{__('Plateau State Internal Revenue Service (PSIRS) is the major revenue generating Agency of the State saddled with the responsibility of collecting all forms of taxes within its jurisdiction.')}}
-    </p>
-    <a class="default-button default-button-2" href="about.html">{{__('Learn More')}}</a>
-    </div>
-    </div>
-    <div class="col-lg-6">
-    <div class="banner-img-3">
-    <img src="{{asset('images/banner/banner-3-1.png')}}" alt="image">
-    <a class="video-popup" href="../../../www.youtube.com/watchcbd1?v=ukfISpWHVWI"><i class="fas fa-play"></i></a>
-    </div>
-    </div>
-    </div>
-    </div>
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="banner-text-area banner-text-area-3">
+                        <h6>{{__('WELCOME TO')}}</h6>
+                        <h1>{{__('Plateau State Internal Revenue Service')}}</h1>
+                        <p>
+                            {{__('Your Gateway to Efficient Tax Services. Explore our website to access convenient tax
+                            resources, services, and
+                            information for a thriving and prosperous Plateau State. Pay your taxes and contribute to the
+                            growth of our beautiful
+                            state today!')}}
+                        </p>
+                        <a class="default-button default-button-2" href="about.html">{{__('Learn More')}}</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="banner-img-3">
+                        <img src="{{asset('images/banner/psirs-bg-1.png')}}" alt="image">
+                        <a class="video-popup" href="../../../www.youtube.com/watchcbd1?v=ukfISpWHVWI"><i
+                                class="fas fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-
-
+    {{-- About Us --}}
     <section class="about pt-100">
-    <div class="shape">
-    <img src="{{asset('images/about/shape.png')}}" alt="image">
-    </div>
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-    <div class="about-img-3">
-    <img src="{{asset('images/about/a3-1.jpg')}}" alt="image">
-    </div>
-    </div>
-    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-    <div class="why-we-text-area about-text-area-2 pl-20">
-    <div class="default-section-title">
-    <span>WHO WE ARE</span>
-    <h3>Medzo Is An Inner Metropolitan Municipality Service</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    <div class="why-we-text-list">
-    <i class="flaticon-government-building"></i>
-    <h4>Our Role Is To:</h4>
-    <p>Nulla porttitor accumsan tincidunt lorem ipsum dolor sit amet consectetur adipiscing elit praesent sapien massa convallis.</p>
-    <ul>
-    <li>Praesent sapien massa, convallis a pellentesque nec.</li>
-    <li>Nulla porttitor accumsan tincidunt.</li>
-    <li>Ivamus suscipit tortor eget felis porttitor volutpat.</li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+        <div class="shape">
+            <img src="{{asset('images/about/shape.png')}}" alt="image">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="about-img-3">
+                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="why-we-text-area about-text-area-2 pl-20">
+                        <div class="default-section-title">
+                            <span>{{__('WHO WE ARE')}}</span>
+                            <h3>{{__('Plateau State Internal Revenue Service (PSIRS)')}}</h3>
+                            <p>{{__('We are the major revenue generating Agency of the State saddled with the
+                                responsibility of collecting all forms of taxes within its jurisdiction. Over the years
+                                PSIRS has increased the State’s
+                                Internally Generated Revenue (IGR) by executing and implementing strategies which have
+                                impacted positively on revenue
+                                generation and collection, with the IGR growing steadily thereby augmenting what the state
+                                is receiving from the federal
+                                account.')}}</p>
+                        </div>
+                        <div class="why-we-text-list">
+                            <i class="flaticon-government-building"></i>
+                            <h4>{{__('Our Role Is To:')}}</h4>
+                            <p>{{('Make tax assessment and payment convenient for tax payers by:')}}.</p>
+                            <ul>
+                                <li>{{__('Encouraging taxpayers to come forward and submit themselves for taxation.')}}</li>
+                                <li>{{__('Reducing the high incidence of tax evasion by this group of taxpayers.')}}</li>
+                                <li>{{__('Encouraging taxpayer completing the self-assessment which they are entitled to a
+                                    bonus of 1percent i.e. the tax payable
+                                    shall be 1% less the actual tax computed.')}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <section class="feedback ptb-100">
+        <div class="container">
+            <div class="default-section-title position-relative default-section-title-middle mt-10">
+                <div class="position-absolute top-50 start-50 z-n1 light-green">
+                    <i class="flaticon-quotation display-1"></i>
+                </div>
+                <h3>{{__('Our Vision')}}</h3>
+                <p>{{__('"A leading Internal Revenue Service where teamwork and professionalism are combined to maximize revenue generation for
+                the development of the state."')}}</p>
+            </div>
+        </div>
+    </section>
+    <section class="feedback">
+        <div class="container">
+            <div class="default-section-title position-relative default-section-title-middle mt-10">
+                <div class="position-absolute top-50 start-50 z-n1 light-green">
+                    <i class="flaticon-quotation display-1"></i>
+                </div>
+                <h3>{{__('Our Mission')}}</h3>
+                <p>{{__('"To collect and coordinate all revenues accruing to Plateau State Government in a transparent and professional manner
+                that create tax-payer friendly environment which encourages voluntary compliance in order to optimally fund government
+                budget."')}}</p>
+            </div>
+        </div>
+    </section>
+    {{-- Filing Your Returns Online --}}
+    <section class="about ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="why-we-text-area about-text-area-2 pl-20">
+                        <div class="default-section-title">
+                            <span>{{__('HOW TO')}}</span>
+                            <h3>{{__('File Your Returns')}}</h3>
+                        </div>
+                        <div class="why-we-text-list">
+                            <i class="flaticon-portfolio"></i>
+                            <h4>{{__('Filing Your Returns Online:')}}</h4>
+                            <p> {{__('To file your returns, follow these steps:')}}</p>
+                            <ul>
+                                <li>{{__('Visit the PSIRS website at')}} <a href="https://piras.psirs.gov.ng" target="_blank" class="link-color-green">{{__('piras.psirs.gov.ng.')}}</a></li>
+                                <li>{{__('Log in using your Tax Identification Number (TIN) or phone number, depending on your registration.')}}</li>
+                                <li>{{__('Navigate to the "Assessment" or "Self-Assessment" section.')}}</li>
+                                <li>{{__('Click on "Quick Assessment" on the website.')}}</li>
+                                <li>{{__('Enter your TIN.')}}</li>
+                                <li>{{__('Select "Plateau State Internal Revenue Service" from the drop-down menu for the Ministry, Department, and Agency (MDA).')}}</li>
+                                <li>{{__('Choose "Revenue Returns - Individual" or "Revenue Returns - Corporate" based on your taxpayer status.')}}</li>
+                                <li>{{__('Complete the required forms until the end.')}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="about-img-3">
+                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Obtain Tax Clearance --}}
+    <section class="about ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="about-img-3">
+                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="why-we-text-area about-text-area-2 pl-20">
+                        <div class="default-section-title">
+                            <span>{{__('HOW TO')}}</span>
+                            <h3>{{__('Obtain Tax Clearance')}}</h3>
+                        </div>
+                        <div class="why-we-text-list">
+                            <i class="flaticon-portfolio"></i>
+                            <h4>{{__('Obtaining a Tax Clearance Certificate (TCC)')}}</h4>
+                            <p> {{__('To obtain a Tax Clearance Certificate (TCC), you have two options:')}}</p>
+                            <p> {{__('1. Visit our office:')}}</p>
+                            <ul>
+                                <li>{{__('Pick up a TCC form.')}}</a></li>
+                                <li>{{__('Fill out the form.')}}</li>
+                                <li>{{__('Navigate to the "Assessment" or "Self-Assessment" section.')}}</li>
+                                <li>{{__('Take it to your organization for endorsement and stamping if you are representing a formal organization.')}}</li>
+                            </ul>
+                            <p class="mt-3"> {{__('2. For businesses or companies:')}}</p>
+                            <ul>
+                                <li>{{__('Submit your business name or company\'s income records for assessment, payment, and issuance of the TCC.')}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- View Payable Taxes --}}
+    <section class="about ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="why-we-text-area about-text-area-2 pl-20">
+                        <div class="default-section-title">
+                            <span>{{__('HOW TO')}}</span>
+                            <h3>{{__('View All Payable Taxes')}}</h3>
+                        </div>
+                        <div class="why-we-text-list">
+                            <i class="flaticon-portfolio"></i>
+                            <h4>{{__('Viewing Plateau State Taxes Payable Online:')}}</h4>
+                            <p> {{__('For information on taxes payable to Plateau State, follow these steps:')}}</p>
+                            <ul>
+                                <li>{{__('Visit the PSIRS website at')}} <a href="https://piras.psirs.gov.ng"
+                                        target="_blank" class="link-color-green">{{__('piras.psirs.gov.ng.')}}</a></li>
+                                <li>{{__('Navigate to the website to view all revenue items and tax types for Plateau State.')}}</li>
+                            </ul>
+                            <p class="mt-3">{{__("Follow these clear and simple instructions if you're seeking information on filing returns,
+                            obtaining TCCs, and checking taxes payable to Plateau State.")}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="about-img-3">
+                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="services ptb-100">
+    {{-- <section class="services ptb-100">
     <div class="container">
     <div class="default-section-title default-section-title-middle">
     <h3>Find Government Services</h3>
@@ -109,392 +250,202 @@
     </div>
     </div>
     </div>
+    </section> --}}
+
+
+    <div class="mt-5">
+        <section class="fun-facts pt-70 pb-100 bg-f9fbfe">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card fun-facts-card-2">
+                            <i class="flaticon-smart-city"></i>
+                            <h2><span class="odometer" data-count="46712">00</span></h2>
+                            <p>Tax payers</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card fun-facts-card-2">
+                            <i class="flaticon-location-1"></i>
+                            <h2><span class="odometer" data-count="22">00</span>K</h2>
+                            <p>Tax Clearance</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card fun-facts-card-2">
+                            <i class="flaticon-park-1"></i>
+                            <h2><span class="odometer" data-count="300">00</span>+</h2>
+                            <p>companies</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                        <div class="fun-facts-card last-card fun-facts-card-2">
+                            <i class="flaticon-award"></i>
+                            <h2><span class="odometer" data-count="1000">00</span>+</h2>
+                            <p>Indiviuals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="blog ptb-100">
+        <div class="container">
+            <div class="default-section-title default-section-title-middle mt-10">
+                <h3>Latest News & Updates</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua quis ipsum suspendisse</p>
+            </div>
+            <div class="section-content">
+                <div class="row justify-content-center">
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="blog-card">
+                            <div class="blog-card-img">
+                                <a href="blog-details.html"><img src="{{asset('images/blog/b1.jpg')}}" alt="image"></a>
+                            </div>
+                            <div class="blog-card-text-area">
+                                <div class="blog-date">
+                                    <ul>
+                                        <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
+                                        <li><i class="far fa-comments"></i> No Comment</li>
+                                        <li><i class="far fa-calendar-alt"></i> 01 Nov 2022</li>
+                                    </ul>
+                                </div>
+                                <h4><a href="blog-details.html">Tax Week</a></h4>
+                                <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.
+                                </p>
+                                <a class="read-more-btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="blog-card">
+                            <div class="blog-card-img">
+                                <a href="blog-details.html"><img src="{{asset('images/blog/b2.jpg')}}" alt="image"></a>
+                            </div>
+                            <div class="blog-card-text-area">
+                                <div class="blog-date">
+                                    <ul>
+                                        <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
+                                        <li><i class="far fa-comments"></i> No Comment</li>
+                                        <li><i class="far fa-calendar-alt"></i> 02 Nov 2022</li>
+                                    </ul>
+                                </div>
+                                <h4><a href="blog-details.html">Tax Week</a></h4>
+                                <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.
+                                </p>
+                                <a class="read-more-btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="blog-card">
+                            <div class="blog-card-img">
+                                <a href="blog-details.html"><img src="{{asset('images/blog/b3.jpg')}}" alt="image"></a>
+                            </div>
+                            <div class="blog-card-text-area">
+                                <div class="blog-date">
+                                    <ul>
+                                        <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
+                                        <li><i class="far fa-comments"></i> No Comment</li>
+                                        <li><i class="far fa-calendar-alt"></i> 03 Nov 2022</li>
+                                    </ul>
+                                </div>
+                                <h4><a href="blog-details.html">Tax Week</a></h4>
+                                <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.
+                                </p>
+                                <a class="read-more-btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-
-    <section class="fun-facts pt-70 pb-100 bg-f9fbfe">
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-    <div class="fun-facts-card fun-facts-card-2">
-    <i class="flaticon-smart-city"></i>
-    <h2><span class="odometer" data-count="46712">00</span></h2>
-    <p>People In The City</p>
-    </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-    <div class="fun-facts-card fun-facts-card-2">
-    <i class="flaticon-location-1"></i>
-    <h2><span class="odometer" data-count="22">00</span>K</h2>
-    <p>Square Of City</p>
-    </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-    <div class="fun-facts-card fun-facts-card-2">
-    <i class="flaticon-park-1"></i>
-    <h2><span class="odometer" data-count="300">00</span>+</h2>
-    <p>Year Of Foundation</p>
-    </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-    <div class="fun-facts-card last-card fun-facts-card-2">
-    <i class="flaticon-award"></i>
-    <h2><span class="odometer" data-count="1000">00</span>+</h2>
-    <p>Successful Programs</p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
-    <section class="events pt-100">
-    <div class="container">
-    <div class="default-section-title default-section-title-middle mt-10">
-    <h3>Upcoming City Events</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-    </div>
-    <div class="section-content">
-    <div class="row justify-content-center">
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="events-card">
-    <img src="{{asset('images/events/e1.jpg')}}" alt="image">
-    <div class="events-card-text">
-    <ul>
-    <li>Conference</li>
-    <li>Oct 12, 2022</li>
-    </ul>
-    <h4><a href="event-details.html">Annual Conference 2022</a></h4>
-    <p><i class="fas fa-map-marker-alt"></i> <a href="../../../goo.gl/maps/QTg39qSWoB5fdndT7">At City Center, 27 Division Street, USA</a></p>
-    <a class="read-more-btn" href="event-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="events-card">
-    <img src="{{asset('images/events/e2.jpg')}}" alt="image">
-    <div class="events-card-text">
-    <ul>
-    <li>Conference</li>
-    <li>Oct 13, 2022</li>
-    </ul>
-    <h4><a href="event-details.html">Negotiation In Government</a></h4>
-    <p><i class="fas fa-map-marker-alt"></i> <a href="../../../goo.gl/maps/QTg39qSWoB5fdndT7">At City Center, 27 Division Street, USA</a></p>
-    <a class="read-more-btn" href="event-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="events-card">
-    <img src="{{asset('images/events/e3.jpg')}}" alt="image">
-    <div class="events-card-text">
-    <ul>
-    <li>Conference</li>
-    <li>Oct 14, 2022</li>
-    </ul>
-    <h4><a href="event-details.html">Annual Health Conference</a></h4>
-    <p><i class="fas fa-map-marker-alt"></i> <a href="../../../goo.gl/maps/QTg39qSWoB5fdndT7">At City Center, 27 Division Street, USA</a></p>
-    <a class="read-more-btn" href="event-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
-    <section class="about about-3 ptb-100">
-    <div class="shape">
-    <img src="{{asset('images/about/shape.png')}}" alt="image">
-    </div>
-    <div class="container">
-    <div class="default-section-title default-section-title-middle mt-10">
-    <h3>Explore City Events</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-    </div>
-    <div class="section-content">
-    <div class="row">
-    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-    <div class="why-we-text-area">
-    <div class="default-section-title pr-20">
-    <span>WHO WE ARE</span>
-    <h3>Plan A Great City That Provides The Essence Of Success</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    <div class="why-we-text-list">
-    <i class="flaticon-government"></i>
-    <h4>Sustainable Innovation Is Our Pathway:</h4>
-    <p>Nulla porttitor accumsan tincidunt lorem ipsum dolor sit amet consectetur adipiscing elit praesent sapien massa convallis.</p>
-    <ul>
-    <li>Praesent sapien massa, convallis a pellentesque nec.</li>
-    <li>Nulla porttitor accumsan tincidunt.</li>
-    </ul>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-    <div class="about-img-3 ai-2-2">
-    <img src="{{asset('images/about/a3-2.jpg')}}" alt="image">
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
-    <section class="team ptb-100 bg-f9fbfe">
-    <div class="container">
-    <div class="default-section-title default-section-title-middle">
-    <h3>Our City Counselor</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-    </div>
-    <div class="section-content">
-    <div class="row justify-content-center">
-    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
-    <div class="team-card">
-    <div class="team-card-img">
-    <img src="{{asset('images/team/t1.jpg')}}" alt="image">
-    <div class="team-social-icons">
-    <ul>
-    <li><a href="{{config('app.facebook_url')}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="{{config('app.linkedin_url')}}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-    <li><a href="{{config('app.twitter_url')}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="{{config('app.instagram_url')}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    </ul>
-    </div>
-    </div>
-    <div class="team-card-text">
-    <h4>Mila Wilson</h4>
-    <p>City Secratery</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
-    <div class="team-card">
-    <div class="team-card-img">
-    <img src="{{asset('images/team/t2.jpg')}}" alt="image">
-    <div class="team-social-icons">
-    <ul>
-    <li><a href="../../../www.facebook.com/index.html" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="../../../www.linkedin.com/index.html" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-    <li><a href="../../../twitter.com/index.html" target="_blank"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="../../../www.instagram.com/index.html" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    </ul>
-    </div>
-    </div>
-    <div class="team-card-text">
-    <h4>Bren Stork</h4>
-    <p>Counsil President</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
-    <div class="team-card">
-    <div class="team-card-img">
-    <img src="{{asset('images/team/t3.jpg')}}" alt="image">
-    <div class="team-social-icons">
-    <ul>
-    <li><a href="../../../www.facebook.com/index.html" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="../../../www.linkedin.com/index.html" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-    <li><a href="../../../twitter.com/index.html" target="_blank"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="../../../www.instagram.com/index.html" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    </ul>
-    </div>
-    </div>
-    <div class="team-card-text">
-    <h4>Mukesh Sarkar</h4>
-    <p>City Mayor</p>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
-    <div class="team-card">
-    <div class="team-card-img">
-    <img src="{{asset('images/team/t4.jpg')}}" alt="image">
-    <div class="team-social-icons">
-    <ul>
-    <li><a href="../../../www.facebook.com/index.html" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="../../../www.linkedin.com/index.html" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-    <li><a href="../../../twitter.com/index.html" target="_blank"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="../../../www.instagram.com/index.html" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    </ul>
-    </div>
-    </div>
-    <div class="team-card-text">
-    <h4>David Jon</h4>
-    <p>Assistant Mayor</p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
-    <section class="feedback ptb-100">
-    <div class="container">
-    <div class="default-section-title default-section-title-middle mt-10">
-    <h3>What Your Counselors Says</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-    </div>
-    <div class="section-content">
-    <div class="feedback-slider-area-2 owl-carousel">
-    <div class="feedback-card mlr-15 mb-30">
-    <i class="flaticon-quotation"></i>
-    <div class="stars">
-    <ul>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    </ul>
-    </div>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet elite consectetur adipiscing do elite magna aliqua sit amet dolore adipiscing elite.</p>
-    <div class="feedback-intro-area">
-    <img src="{{asset('images/feedback/f1.jpg')}}" alt="image">
-    <div class="feedback-intro">
-    <h5>Jhon Abraham</h5>
-    <span>City Council President</span>
-    </div>
-    </div>
-    </div>
-    <div class="feedback-card mlr-15 mb-30">
-    <i class="flaticon-quotation"></i>
-    <div class="stars">
-    <ul>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    </ul>
-    </div>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet elite consectetur adipiscing do elite magna aliqua sit amet dolore adipiscing elite.</p>
-    <div class="feedback-intro-area">
-    <img src="{{asset('images/feedback/f2.jpg')}}" alt="image">
-    <div class="feedback-intro">
-    <h5>Jhon Smith</h5>
-    <span>City Council Advisor</span>
-    </div>
-    </div>
-    </div>
-    <div class="feedback-card mlr-15 mb-30">
-    <i class="flaticon-quotation"></i>
-    <div class="stars">
-    <ul>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    </ul>
-    </div>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet elite consectetur adipiscing do elite magna aliqua sit amet dolore adipiscing elite.</p>
-    <div class="feedback-intro-area">
-    <img src="{{asset('images/feedback/f3.jpg')}}" alt="image">
-    <div class="feedback-intro">
-    <h5>Peter Smith</h5>
-    <span>City Council Secratery</span>
-    </div>
-    </div>
-    </div>
-    <div class="feedback-card mlr-15 mb-30">
-    <i class="flaticon-quotation"></i>
-    <div class="stars">
-    <ul>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    <li><i class="fas fa-star"></i></li>
-    </ul>
-    </div>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet elite consectetur adipiscing do elite magna aliqua sit amet dolore adipiscing elite.</p>
-    <div class="feedback-intro-area">
-    <img src="{{asset('images/feedback/f4.jpg')}}" alt="image">
-    <div class="feedback-intro">
-    <h5>Peter Parker</h5>
-    <span>City Council Secratery</span>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-
-
-    <section class="blog pb-100">
-    <div class="container">
-    <div class="default-section-title default-section-title-middle mt-10">
-    <h3>Latest News & Updates</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-    </div>
-    <div class="section-content">
-    <div class="row justify-content-center">
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="blog-card">
-    <div class="blog-card-img">
-    <a href="blog-details.html"><img src="{{asset('images/blog/b1.jpg')}}" alt="image"></a>
-    </div>
-    <div class="blog-card-text-area">
-    <div class="blog-date">
-    <ul>
-    <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
-    <li><i class="far fa-comments"></i> No Comment</li>
-    <li><i class="far fa-calendar-alt"></i> 01 Nov 2022</li>
-    </ul>
-    </div>
-    <h4><a href="blog-details.html">Responds To Citizens Advice</a></h4>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.</p>
-    <a class="read-more-btn" href="blog-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="blog-card">
-    <div class="blog-card-img">
-    <a href="blog-details.html"><img src="{{asset('images/blog/b2.jpg')}}" alt="image"></a>
-    </div>
-    <div class="blog-card-text-area">
-    <div class="blog-date">
-    <ul>
-    <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
-    <li><i class="far fa-comments"></i> No Comment</li>
-    <li><i class="far fa-calendar-alt"></i> 02 Nov 2022</li>
-    </ul>
-    </div>
-    <h4><a href="blog-details.html">Housing Advisers Program</a></h4>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.</p>
-    <a class="read-more-btn" href="blog-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="blog-card">
-    <div class="blog-card-img">
-    <a href="blog-details.html"><img src="{{asset('images/blog/b3.jpg')}}" alt="image"></a>
-    </div>
-    <div class="blog-card-text-area">
-    <div class="blog-date">
-    <ul>
-    <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
-    <li><i class="far fa-comments"></i> No Comment</li>
-    <li><i class="far fa-calendar-alt"></i> 03 Nov 2022</li>
-    </ul>
-    </div>
-    <h4><a href="blog-details.html">Respond To National Report</a></h4>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.</p>
-    <a class="read-more-btn" href="blog-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+    <section class="contact-form-area pb-100">
+        <div class="container">
+            <div class="default-section-title default-section-title-middle">
+                <h3>Get In Touch</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua quis ipsum suspendisse</p>
+            </div>
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="google-map pr-20">
+                            <iframe
+                                class="g-map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.273890218031!2d8.886710674451997!3d9.911131690189777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105373686323de7d%3A0x4468d78fc309e1b0!2sPLATEAU%20STATE%20BOARD%20OF%20INTERNAL%20REVENUE%20HQ!5e0!3m2!1sen!2sng!4v1698994060336!5m2!1sen!2sng"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="contact-form-text-area">
+                            <form id="contactForm">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Name" id="name" required
+                                                data-error="Please enter your name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" placeholder="Email"
+                                                id="email" required data-error="Please enter your Email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" name="phone_number" class="form-control"
+                                                placeholder="Phone Number" id="phone_number" required
+                                                data-error="Please enter your phone number">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <input type="text" name="msg_subject" class="form-control" placeholder="Subject"
+                                                id="msg_subject" required data-error="Please enter your subject">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-12">
+                                        <div class="form-group">
+                                            <textarea name="message" id="message" class="form-control"
+                                                placeholder="Your Messages.." cols="30" rows="5" required
+                                                data-error="Please enter your message"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input name="gridCheck" value="I agree to the terms and privacy policy."
+                                                    class="form-check-input" type="checkbox" id="gridCheck" required>
+                                                <label class="form-check-label" for="gridCheck">
+                                                    I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>
+                                                </label>
+                                                <div class="help-block with-errors gridCheck-error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-12">
+                                        <button class="default-button" type="submit"><span>Send Message</span></button>
+                                        <div id="msgSubmit" class="h6 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 @endsection

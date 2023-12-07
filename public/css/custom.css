@@ -12,6 +12,18 @@
     text-decoration: none
 }
 
+.link-color-green{
+    color: #00aa55;
+}
+
+.link-color-green:hover{
+    color: #ababab !important;
+}
+
+.light-green {
+    color: #82d7ad58;
+}
+
 .dark-green-bg{
     background-color: #01592a;
     color: #fff;
