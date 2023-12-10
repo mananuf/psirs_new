@@ -10,6 +10,19 @@ class Directorate extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        'body'
+        'body',
+        'roles',
+        'directors_image_id',
+        'directorate_image_id',
     ];
+
+    public function directorsImage()
+    {
+        return $this->belongsTo(Image::class, 'directors_image_id');
+    }
+
+    public function directorateImage()
+    {
+        return $this->belongsTo(Image::class, 'directorate_image_id');
+    }
 }

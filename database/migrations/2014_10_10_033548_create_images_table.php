@@ -8,9 +8,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        if (!Schema::hasTable('jobs')) {
-            Schema::create('jobs', function (Blueprint $table) {
+        if (!Schema::hasTable('images')) {
+            Schema::create('images', function (Blueprint $table) {
                 $table->id();
+                $table->unsignedBigInteger('imageable_id');
+                $table->string('imageable_type');
+                $table->string('path');
                 $table->timestamps();
             });
         }
@@ -18,8 +21,8 @@ return new class extends Migration
 
     public function down(): void
     {
-        if (Schema::hasTable('jobs')) {
-            Schema::dropIfExists('jobs');
+        if (Schema::hasTable('imagess')) {
+            Schema::dropIfExists('images');
         }
     }
 };

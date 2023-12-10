@@ -20,7 +20,7 @@
                 <div class="col-lg-6">
                     <div class="banner-img-3">
                         <img src="{{asset('images/banner/psirs-bg-1.png')}}" alt="image">
-                        <a class="video-popup" href="../../../www.youtube.com/watchcbd1?v=ukfISpWHVWI"><i
+                        <a class="video-popup" href="https://www.youtube.com/embed/TKyCNLqDUrg"><i
                                 class="fas fa-play"></i></a>
                     </div>
                 </div>
