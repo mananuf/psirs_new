@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $pageTitle = 'Dashboard';
+        $pageTitle = 'Home';
         $directorates = Directorate::orderBy('title', 'ASC')->paginate(25);
         $images = Image::orderBy('created_at', 'DESC')->paginate(25);
         $users = User::orderBy('created_at', 'DESC')->paginate(25);

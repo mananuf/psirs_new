@@ -31,7 +31,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
+                    <a href="{{route('admin.directorates.create')}}" class="dropdown-item">
                         <i class="fa fa-briefcase me-1"></i>
                         <span>{{__('New Directorate')}}</span>
                     </a>

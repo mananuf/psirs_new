@@ -1,35 +1,31 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\directorate;
-use DataTables;
+use App\Models\Directorate;
 
-class directorateController extends Controller
+class DirectorateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $directorates = directorate::all();
-        return view('admin.directorate.index',compact('directorates'));
+        $directorates = Directorate::orderBy('title', 'ASC')->paginate(25);
+        $pageTitle = 'Directorates';
+
+        return view('admin.directorate.index',compact('directorates', 'pageTitle'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('admin.directorate.create');
+        $pageTitle = 'Create Directorate';
+
+        return view('admin.directorate.create', compact('pageTitle'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -71,7 +67,7 @@ class directorateController extends Controller
 
 
        $content = $dom->saveHTML();
-       $directorate = directorate::create([
+       $directorate = Directorate::create([
             'title' => $request->title,
             'body' => $content
        ]);
@@ -81,26 +77,17 @@ class directorateController extends Controller
                         ->with('success','post created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(directorate $directorate)
+    public function show(Directorate $directorate)
     {
         return view('admin.directorate.show',compact('directorate'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(directorate $directorate)
+    public function edit(Directorate $directorate)
     {
         return view('admin.directorate.edit',compact('directorate'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, directorate $directorate)
+    public function update(Request $request, Directorate $directorate)
     {
         $request->validate([
             'title' => 'required',
@@ -155,10 +142,7 @@ class directorateController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(directorate $directorate)
+    public function destroy(Directorate $directorate)
     {
         $directorate->delete();
         return redirect()->back()->with('success','directorate deleted successfully');

@@ -33,6 +33,9 @@
     <link href="{{asset('dashboard/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.3.67/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://coderthemes.com/ubold/layouts/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="https://coderthemes.com/ubold/layouts/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+    <link href="https://coderthemes.com/ubold/layouts/assets/libs/dropify/css/dropify.min.css" rel="stylesheet"type="text/css" />
 </head>
 
 <body>
@@ -66,7 +69,7 @@
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">{{config('app.name', 'PSIRS')}}</a></li>
-                                        {{-- <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li> --}}
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">{{__('Dashboard')}}</a></li>
                                         <li class="breadcrumb-item active">{{$pageTitle}}</li>
                                     </ol>
                                 </div>
@@ -113,9 +116,18 @@
     <script
         src="https://coderthemes.com/ubold/layouts/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js">
     </script>
+    <script src="https://coderthemes.com/ubold/layouts/assets/libs/select2/js/select2.min.js"></script>
+    <!-- Dropzone file uploads-->
+    <script src="https://coderthemes.com/ubold/layouts/assets/libs/dropzone/min/dropzone.min.js"></script>
+    <script src="https://coderthemes.com/ubold/layouts/assets/libs/dropify/js/dropify.min.js"></script>
+    
+    <!-- Quill js -->
+    <script src="https://coderthemes.com/ubold/layouts/assets/libs/quill/quill.min.js"></script>
 
     <!-- Dashboard 2 init -->
     <script src="{{asset('dashboard/js/pages/dashboard-2.init.js')}}"></script>
+    <script src="{{asset('dashboard/js/pages/form-fileuploads.init.js')}}"></script>
+    <script src="{{asset('dashboard/js/pages/form-quilljs.init.js')}}"></script>
 
 </body>
 

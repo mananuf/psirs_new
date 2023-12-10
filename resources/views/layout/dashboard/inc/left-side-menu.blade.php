@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-link">
+                        <a href="{{route('admin.directorates.index')}}" class="menu-link">
                             <span class="menu-text">{{__('Directorates')}}</span>
                         </a>
                     </li>
