@@ -14,8 +14,7 @@ return new class extends Migration
                 $table->id();
                 $table->string('title');
                 $table->longText('body');
-                $table->json('roles');
-                $table->string('directors_name');
+                $table->string('directors_name')->nullable();
                 $table->unsignedBigInteger('directors_image_id')->nullable();
                 $table->unsignedBigInteger('directorate_image_id')->nullable();
                 $table->string('status')->nullable()->default(GenericStatus::enabled());

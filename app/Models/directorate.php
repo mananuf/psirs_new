@@ -16,6 +16,11 @@ class Directorate extends Model
         'directorate_image_id',
     ];
 
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
     public function directorsImage()
     {
         return $this->belongsTo(Image::class, 'directors_image_id');

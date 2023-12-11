@@ -36,6 +36,8 @@
     <link href="https://coderthemes.com/ubold/layouts/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
     <link href="https://coderthemes.com/ubold/layouts/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
     <link href="https://coderthemes.com/ubold/layouts/assets/libs/dropify/css/dropify.min.css" rel="stylesheet"type="text/css" />
+    <!-- summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -57,6 +59,9 @@
             @include('layout.dashboard.inc.topbar')
             <!-- ========== Topbar End ========== -->
 
+            <!-- ========== messages Start ========== -->
+            @include('layout.dashboard.inc.messages')
+            <!-- ========== messages End ========== -->
             <div class="content">
 
                 <!-- Start Content-->
@@ -128,7 +133,12 @@
     <script src="{{asset('dashboard/js/pages/dashboard-2.init.js')}}"></script>
     <script src="{{asset('dashboard/js/pages/form-fileuploads.init.js')}}"></script>
     <script src="{{asset('dashboard/js/pages/form-quilljs.init.js')}}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+                  $('.summernote').summernote();
+                });
+    </script>
 </body>
 
 

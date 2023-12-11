@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Directorate;
+use App\Models\Image;
+use Illuminate\Support\Facades\DB;
 
 class DirectorateController extends Controller
 {
@@ -25,20 +27,20 @@ class DirectorateController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|string',
             'body' => 'required',
+            'directors_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'directorate_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-       $content = $request->body;
 
+        DB::beginTransaction();
+        
        $dom = new \DomDocument();
 
-       $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+       $dom->loadHtml($request->body, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
        $imageFile = $dom->getElementsByTagName('img');
-
-
 
        foreach($imageFile as $item => $image){
 
@@ -56,88 +58,95 @@ class DirectorateController extends Controller
 
            file_put_contents($path, $imgeData);
 
-
-
            $image->removeAttribute('src');
 
            $image->setAttribute('src', $image_name);
 
         }
 
-
-
-       $content = $dom->saveHTML();
        $directorate = Directorate::create([
             'title' => $request->title,
-            'body' => $content
+            'body' => $dom->saveHTML(),
+            'directors_name' => $request->directors_name ? $request->directors_name : null,
        ]);
 
+        $directorsImage = $request->directors_image
+            ? new Image(['path' => $request->file('directors_image')->store('directors')])
+            : null;
+        $directorateImage = $request->directorate_image
+            ? new Image(['path' => $request->file('directorate_image')->store('directorates')])
+            : null;
 
-        return redirect()->back()
-                        ->with('success','post created successfully.');
-    }
+        $directorate->images()->save($directorsImage);
+        $directorate->images()->save($directorateImage);
 
-    public function show(Directorate $directorate)
-    {
-        return view('admin.directorate.show',compact('directorate'));
+        DB::commit();
+
+        return redirect()->route('admin.directorates.index')->with('success','post created successfully.');
     }
 
     public function edit(Directorate $directorate)
     {
-        return view('admin.directorate.edit',compact('directorate'));
+        $pageTitle = "Edit $directorate->title";
+        return view('admin.directorate.edit',compact('directorate', 'pageTitle'));
     }
 
     public function update(Request $request, Directorate $directorate)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|string',
             'body' => 'required',
+            'directors_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'directorate_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-       $content = $request->body;
 
-       $dom = new \DomDocument();
+        DB::beginTransaction();
 
-       $dom->loadHtml($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom = new \DomDocument();
 
-       $imageFile = $dom->getElementsByTagName('img');
+        $dom->loadHtml($request->body, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
+        $imageFile = $dom->getElementsByTagName('img');
 
+        foreach ($imageFile as $item => $image) {
 
-       foreach($imageFile as $item => $image){
+            $data = $image->getAttribute('src');
 
-           $data = $image->getAttribute('src');
-           if (strpos($data, ';') === false) {
-               continue;
-           }
+            list($type, $data) = explode(';', $data);
 
-           list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
 
-           list(, $data)      = explode(',', $data);
+            $imgeData = base64_decode($data);
 
-           $imgeData = base64_decode($data);
+            $image_name = "/upload/" . time() . $item . '.png';
 
-           $image_name= "/upload/" . time().$item.'.png';
+            $path = public_path() . $image_name;
 
-           $path = public_path() . $image_name;
+            file_put_contents($path, $imgeData);
 
-           file_put_contents($path, $imgeData);
+            $image->removeAttribute('src');
 
-
-
-           $image->removeAttribute('src');
-
-           $image->setAttribute('src', $image_name);
-
+            $image->setAttribute('src', $image_name);
         }
 
+        $directorate->update([
+            'title' => $request->title,
+            'body' => $dom->saveHTML(),
+            'directors_name' => $request->directors_name ? $request->directors_name : $directorate->directors_name,
+        ]);
 
+        $directorsImage = $request->directors_image
+            ? new Image(['path' => $request->file('directors_image')->store('directors')])
+            : null;
+        $directorateImage = $request->directorate_image
+            ? new Image(['path' => $request->file('directorate_image')->store('directorates')])
+            : null;
+        $directorate->load('images');
+        dd($directorate->images);
+        $directorate->images()->save($directorsImage);
+        $directorate->images()->save($directorateImage);
 
-       $content = $dom->saveHTML();
-       $directorate->title = $request->title;
-       $directorate->body = $content;
-       $directorate->save();
-        return redirect()->to('blog')
-        ->with('success','updated successfully.');
+        DB::commit();
 
 
     }

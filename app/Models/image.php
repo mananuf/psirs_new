@@ -8,11 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','image','category_id'];
+    protected $fillable = [
+        'name',
+        'imageable_id',
+        'imageable_type',
+        'path'
+    ];
 
-    public function category()
+    public function imageable()
     {
-        return $this->belongsTo(Category::class);
+        return $this->morphTo();
+    }
+
+    public function getPathAttribute($value)
+    {
+        return asset('storage/' . $value);
     }
 
 }
