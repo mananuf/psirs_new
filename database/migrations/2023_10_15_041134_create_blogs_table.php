@@ -16,7 +16,6 @@ return new class extends Migration
                 $table->id();
                 $table->string('title');
                 $table->longText('body');
-                $table->foreignIdFor(Image::class)->nullable()->constrained();
                 $table->foreignIdFor(User::class)->nullable()->constrained();
                 $table->string('status')->nullable()->default(GenericStatus::enabled());
                 $table->timestamps();

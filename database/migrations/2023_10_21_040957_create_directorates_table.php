@@ -15,14 +15,8 @@ return new class extends Migration
                 $table->string('title');
                 $table->longText('body');
                 $table->string('directors_name')->nullable();
-                $table->unsignedBigInteger('directors_image_id')->nullable();
-                $table->unsignedBigInteger('directorate_image_id')->nullable();
                 $table->string('status')->nullable()->default(GenericStatus::enabled());
                 $table->timestamps();
-
-                // foreign keys
-                $table->foreign('directors_image_id')->references('id')->on('images')->onDelete('set null');
-                $table->foreign('directorate_image_id')->references('id')->on('images')->onDelete('set null');
             });
         }
     }

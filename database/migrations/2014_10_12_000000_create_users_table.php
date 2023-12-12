@@ -19,7 +19,6 @@ return new class extends Migration
                 $table->foreignIdFor(Role::class)->nullable();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
-                $table->foreignIdFor(Image::class)->nullable()->constrained();
                 $table->string('status')->nullable()->default(GenericStatus::enabled());
                 $table->rememberToken();
                 $table->timestamps();

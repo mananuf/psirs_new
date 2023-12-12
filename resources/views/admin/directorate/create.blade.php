@@ -14,6 +14,11 @@
                 <input type="text" id="directorate_name" name="title" class="form-control"
                   placeholder="e.g : Admin & Planning">
               </div>
+
+              <div class="mb-3">
+                <label for="directors_name" class="form-label">{{__('Directors Name')}} <span class="text-danger">*</span></label>
+                <input type="text" id="directors_name" name="directors_name" class="form-control">
+              </div>
       
               <div class="mb-3">
                 <label for="product-description" class="form-label">{{__('Directorate Description')}} <span

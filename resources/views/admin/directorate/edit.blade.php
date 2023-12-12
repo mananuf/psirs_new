@@ -17,6 +17,11 @@
           </div>
 
           <div class="mb-3">
+            <label for="directors_name" class="form-label">{{__('Directors Name')}} <span class="text-danger">*</span></label>
+            <input type="text" id="directors_name" name="directors_name" value="{{$directorate->directors_name}}" class="form-control">
+          </div>
+
+          <div class="mb-3">
             <label for="product-description" class="form-label">{{__('Directorate Description')}} <span
                 class="text-danger">*</span></label>
             <textarea class="summernote" style="height: 150px;" name="body">{{$directorate->body}}</textarea>

@@ -5,14 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Directorate;
-use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 
 class DirectorateController extends Controller
 {
     public function index()
     {
-        $directorates = Directorate::orderBy('title', 'ASC')->paginate(25);
+        $directorates = Directorate::with('media')->orderBy('title', 'ASC')->paginate(25);
         $pageTitle = 'Directorates';
 
         return view('admin.directorate.index',compact('directorates', 'pageTitle'));
@@ -28,7 +27,7 @@ class DirectorateController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string',
+            'title' => 'required|string|unique:directorates',
             'body' => 'required',
             'directors_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'directorate_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -70,15 +69,13 @@ class DirectorateController extends Controller
             'directors_name' => $request->directors_name ? $request->directors_name : null,
        ]);
 
-        $directorsImage = $request->directors_image
-            ? new Image(['path' => $request->file('directors_image')->store('directors')])
-            : null;
-        $directorateImage = $request->directorate_image
-            ? new Image(['path' => $request->file('directorate_image')->store('directorates')])
-            : null;
+        if ($request->hasFile('directors_image')) {
+            $directorate->addMediaFromRequest('directors_image')->toMediaCollection('directors_image', 'public');
+        }
 
-        $directorate->images()->save($directorsImage);
-        $directorate->images()->save($directorateImage);
+        if ($request->hasFile('directorate_image')) {
+            $directorate->addMediaFromRequest('directorate_image')->toMediaCollection('directorate_image', 'public');
+        }
 
         DB::commit();
 
@@ -101,7 +98,7 @@ class DirectorateController extends Controller
         ]);
 
         DB::beginTransaction();
-        dd($request->body);
+
         $dom = new \DomDocument();
         $dom->loadHtml($request->body, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $imageFile = $dom->getElementsByTagName('img');
@@ -126,28 +123,26 @@ class DirectorateController extends Controller
 
             $image->setAttribute('src', $image_name);
         }
-
+        
         $directorate->update([
             'title' => $request->title,
             'body' => $dom->saveHTML(),
             'directors_name' => $request->directors_name ? $request->directors_name : $directorate->directors_name,
         ]);
 
-        $directorsImage = $request->directors_image
-            ? new Image(['path' => $request->file('directors_image')->store('directors')])
-            : null;
-        $directorateImage = $request->directorate_image
-            ? new Image(['path' => $request->file('directorate_image')->store('directorates')])
-            : null;
-        $directorate->load('images');
-        foreach($directorate->images as $image) {
-            dd($image);
-        };
-        $directorate->images()->save($directorsImage);
-        $directorate->images()->save($directorateImage);
+        if ($request->hasFile('directors_image')) {
+            $directorate->media ? $directorate->clearMediaCollection('directors_image'): null;
+            $directorate->addMediaFromRequest('directors_image')->toMediaCollection('directors_image', 'public');
+        }
+
+        if ($request->hasFile('directorate_image')) {
+            $directorate->media ? $directorate->clearMediaCollection('directorate_image') : null;
+            $directorate->addMediaFromRequest('directorate_image')->toMediaCollection('directorate_image', 'public');
+        }
 
         DB::commit();
-
+        
+        return redirect()->back()->with('success', 'updated successfully');
     }
 
     public function destroy(Directorate $directorate)

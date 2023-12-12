@@ -4,30 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Directorate extends Model
+class Directorate extends Model implements HasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
+
     protected $fillable = [
         'title',
         'body',
-        'roles',
-        'directors_image_id',
-        'directorate_image_id',
+        'directors_name',
+        'status'
     ];
 
-    public function images()
+    public function media(): MorphMany
     {
-        return $this->morphMany(Image::class, 'imageable');
-    }
-
-    public function directorsImage()
-    {
-        return $this->belongsTo(Image::class, 'directors_image_id');
-    }
-
-    public function directorateImage()
-    {
-        return $this->belongsTo(Image::class, 'directorate_image_id');
+        return $this->morphMany(Media::class, 'model');
     }
 }

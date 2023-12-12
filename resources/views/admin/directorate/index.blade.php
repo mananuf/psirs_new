@@ -61,9 +61,14 @@
                                     <span class="ms-2">{{$directorate->title}}</span>
                                 </td>
                                 <td>
-                                    <img src="{{asset('dashboard/images/users/user-2.jpg')}}" alt="user-pic"
-                                        class="rounded-circle avatar-sm bx-shadow-lg" />
-                                    <span class="ms-2">{{__('HOD')}}</span>
+                                    @php
+                                        $directorsImage = $directorate->media ? str_replace('/Users/mac/Documents/psirs-new/storage/app/public/', 'storage/',
+                                        $directorate->getFirstMediaPath('directors_image'))
+                                        : 'images/avatar.jpg';
+                                    @endphp
+                                    <img src={{asset($directorsImage)}}
+                                        alt="user-pic" class="rounded-circle avatar-sm bx-shadow-lg" />
+                                    <span class="ms-2">{{$directorate->directors_name}}</span>
                                 </td>
                                 <td>
                                     @if ($directorate->status === App\Enums\GenericStatus::enabled())

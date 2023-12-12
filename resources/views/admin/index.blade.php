@@ -204,7 +204,12 @@
                                                 <span class="ms-2">{{$directorate->title}}</span>
                                             </td>
                                             <td>
-                                                <img src="{{asset('dashboard/images/users/user-2.jpg')}}" alt="user-pic" class="rounded-circle avatar-sm bx-shadow-lg" />
+                                                @php
+                                                $directorsImage = $directorate->media ? str_replace('/Users/mac/Documents/psirs-new/storage/app/public/', 'storage/',
+                                                $directorate->getFirstMediaPath('directors_image'))
+                                                : 'images/avatar.jpg';
+                                                @endphp
+                                                <img src="{{ asset($directorsImage) }}" alt="user-pic" class="rounded-circle avatar-sm bx-shadow-lg" />
                                                 <span class="ms-2">{{$directorate->directors_name}}</span>
                                             </td>
                                             <td>
@@ -264,6 +269,24 @@
                                 </tbody>
                             </table>
                         </div> <!-- end table-responsive -->
+                    </div>
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+        @endif
+    {{-- </div>
+    <div class="row"> --}}
+        @if ($images->count() > 0)
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">{{__('Recent Posts')}}</h4>
+                        <div class="row">
+                            @foreach ($images as $image)
+                            <div class="col-2">
+                                <img src="{{asset('storage/'.$image->id.'/'.$image->file_name)}}" alt="" class="avatar-lg">
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div> <!-- end card-->
             </div> <!-- end col-->
