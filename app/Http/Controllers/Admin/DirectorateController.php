@@ -101,11 +101,9 @@ class DirectorateController extends Controller
         ]);
 
         DB::beginTransaction();
-
+        dd($request->body);
         $dom = new \DomDocument();
-
         $dom->loadHtml($request->body, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
         $imageFile = $dom->getElementsByTagName('img');
 
         foreach ($imageFile as $item => $image) {
@@ -142,12 +140,13 @@ class DirectorateController extends Controller
             ? new Image(['path' => $request->file('directorate_image')->store('directorates')])
             : null;
         $directorate->load('images');
-        dd($directorate->images);
+        foreach($directorate->images as $image) {
+            dd($image);
+        };
         $directorate->images()->save($directorsImage);
         $directorate->images()->save($directorateImage);
 
         DB::commit();
-
 
     }
 

@@ -193,10 +193,8 @@
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">{{__('Directorate Name')}}</th>
-                                        <th class="border-top-0">{{__('H.O.D')}}</th>
-                                        <th class="border-top-0">{{__('Description')}}</th>
+                                        <th class="border-top-0">{{__('Director')}}</th>
                                         <th class="border-top-0">{{__('Status')}}</th>
-                                        <th class="border-top-0">{{__('Action')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -207,13 +205,15 @@
                                             </td>
                                             <td>
                                                 <img src="{{asset('dashboard/images/users/user-2.jpg')}}" alt="user-pic" class="rounded-circle avatar-sm bx-shadow-lg" />
-                                                <span class="ms-2">HOD</span>
+                                                <span class="ms-2">{{$directorate->directors_name}}</span>
                                             </td>
-                                            <td>{{$directorate->body}}</td>
-                                            <td><span class="badge rounded-pill bg-success">{{__('Active')}}</span></td>
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-eye"></i></a>
+                                                @if ($directorate->status === \App\Enums\GenericStatus::enabled())
+                                                    <span class="badge rounded-pill bg-success">{{__('Enabled')}}</span>
+                                                @endif
+                                                @if ($directorate->status === \App\Enums\GenericStatus::disabled())
+                                                    <span class="badge rounded-pill bg-danger">{{__('Disabled')}}</span>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
