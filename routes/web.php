@@ -26,6 +26,14 @@ Route::controller(PagesController::class)->group(function () {
     Route::get('directorate/{directorate}',  'directorate')->name('show.directorate');
     Route::get('posts',  'posts')->name('posts.index');
     Route::get('show/post/{post}',  'showPost')->name('posts.show');
+    
+    // About Us Pages
+    Route::prefix('about')->as('about.')->group(function () {
+        Route::get('what-we-do',  'whatWeDo')->name('what-we-do');
+        Route::get('vision-and-mission',  'visionAndMission')->name('vision-and-mission');
+        Route::get('ethical-conduct',  'ethicalConduct')->name('ethical-conduct');
+
+    });
 });
 
 Route::controller(TaxCalculatorController::class)->prefix('tax-calculator')->group(function () {

@@ -13,17 +13,28 @@ class DashboardController extends Controller
     public function index()
     {
         $pageTitle = 'Home';
-        $directorates = Directorate::with('media')->orderBy('title', 'ASC')->paginate(25);
-        $images = Media::get();
-        $users = User::orderBy('created_at', 'DESC')->paginate(25);
-        $posts = Blog::orderBy('created_at', 'DESC')->paginate(25);
-
+        $queryDirectorates = Directorate::with('media')->orderBy('title', 'ASC');
+        $queryUsers = User::orderBy('created_at', 'DESC');
+        $queryPosts = Blog::orderBy('created_at', 'DESC');
+        $directorates = $queryDirectorates->latest('created_at')->limit(6)->get();
+        $images = Media::latest()->limit(12)->get();
+        $users = $queryUsers->latest('created_at')->limit(6)->get();
+        $posts = $queryPosts->latest('created_at')->limit(6)->get();
+        $directoratesCount = $queryDirectorates->count();
+        $imagesCount = Media::count();
+        $postsCount = $queryPosts->count();
+        $usersCount = $queryUsers->count();
+        
         return view('admin.index', compact(
             'pageTitle',
             'directorates',
             'images',
             'users',
             'posts',
+            'imagesCount',
+            'usersCount',
+            'postsCount',
+            'directoratesCount'
         ));
     }
 }

@@ -24,11 +24,16 @@
                             <a href="{{route('home')}}" class="nav-link @if (request()->routeIs('home'))active @endif">{{__('Home')}}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">{{__('About Us')}}</a>
+                            @php
+                                $aboutRouteIsActive= request()->routeIs('about.what-we-do') 
+                                                || request()->routeIs('about.vision-and-mission')
+                                                || request()->routeIs('about.ethical-conduct');
+                            @endphp
+                            <a href="#" class="nav-link dropdown-toggle @if($aboutRouteIsActive) active @endif">{{__('About Us')}}</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">{{__('What We Do')}}</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">{{__('Vision & Mission')}}</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">{{__('Ethical Conduct')}}</a></li>
+                                <li class="nav-item"><a href="{{route('about.what-we-do')}}" class="nav-link @if (request()->routeIs('about.what-we-do'))active @endif">{{__('What We Do')}}</a></li>
+                                <li class="nav-item"><a href="{{route('about.vision-and-mission')}}" class="nav-link @if (request()->routeIs('about.vision-and-mission'))active @endif">{{__('Vision & Mission')}}</a></li>
+                                <li class="nav-item"><a href="{{route('about.ethical-conduct')}}" class="nav-link @if (request()->routeIs('about.ethical-conduct'))active @endif">{{__('Ethical Conduct')}}</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">{{__('Organogram')}}</a></li>
                             </ul>
                         </li>
@@ -39,7 +44,7 @@
                             <a href="#" class="nav-link dropdown-toggle">{{__('Directorate')}}</a>
                             <ul class="dropdown-menu">
                                 @foreach ($directorates as $directorate)
-                                    <li class="nav-item @if (request()->routeIs('show.directorate', $directorate))active @endif"><a href="{{route('show.directorate', $directorate)}}" class="nav-link">{{$directorate->title}}</a></li>
+                                    <li class="nav-item"><a href="{{route('show.directorate', $directorate)}}" class="nav-link @if (request()->routeIs('show.directorate', $directorate))active @endif">{{$directorate->title}}</a></li>
                                 @endforeach
                                 <li class="nav-item">
                                     <a href="#" class="nav-link dropdown-toggle">{{__('Units')}}</a>

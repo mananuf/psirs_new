@@ -23,4 +23,19 @@ class PagesController extends Controller
     {
         return view('pages.blog.show', compact('post'));
     }
+
+    public function whatWeDo()
+    {
+        return view('pages.about.what-we-do');
+    }
+
+    public function visionAndMission()
+    {
+        return view('pages.about.vision-and-mission');
+    }
+
+    public function ethicalConduct()
+    {
+        return view('pages.about.ethical-conduct');
+    }
 }

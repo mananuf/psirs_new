@@ -1,16 +1,6 @@
 @extends('layout.main')
 @section('content')
-    <section class="uni-banner">
-        <div class="container">
-            <div class="uni-banner-text-area">
-                <h1>{{$directorate->title}}</h1>
-                <ul>
-                    <li><a href="{{route('home')}}">Home</a></li>
-                    <li>{{$directorate->title}}</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<x-banner bigHeading="{!! $directorate->title !!}" smallHeading="{!! $directorate->title !!}" />
     <section class="service-details ptb-100">
         <div class="container">
             <div class="row">

@@ -13,7 +13,7 @@
                                     $post->getFirstMediaPath('post_image'))
                                     : 'images/avatar.jpg';
                                 @endphp
-                                <a href="blog-details.html"><img src="{{asset($postImage)}}" style="height: 20rem" alt="image"></a>
+                                <a href="{{route('posts.show', $post)}}"><img src="{{asset($postImage)}}" style="height: 20rem" alt="image"></a>
                             </div>
                             <div class="blog-card-text-area">
                                 <div class="blog-date">
@@ -23,7 +23,7 @@
                                         <li><i class="far fa-calendar-alt"></i> {{now()->parse($post->created_at)->format('M d, Y')}}</li>
                                     </ul>
                                 </div>
-                                <h4><a href="blog-details.html">{{$post->title}}</a></h4>
+                                <h4><a href="{{route('posts.show', $post)}}">{{$post->title}}</a></h4>
                                 <p>{{Str::limit($post->body, 80)}}</p>
                                 <a class="read-more-btn" href="{{route('posts.show', $post)}}">Read More</a>
                             </div>

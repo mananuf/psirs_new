@@ -49,6 +49,7 @@
                             <tr>
                                 <th class="border-top-0">{{__('Post Title')}}</th>
                                 <th class="border-top-0">{{__('Image')}}</th>
+                                <th class="border-top-0">{{__('Post Content')}}</th>
                                 <th class="border-top-0">{{__('Status')}}</th>
                                 <th class="border-top-0">{{__('Action')}}</th>
                             </tr>
@@ -69,6 +70,7 @@
                                     <img src={{asset($postImage)}} alt="user-pic"
                                         class="rounded-circle avatar-sm bx-shadow-lg" />
                                 </td>
+                                <td>{{Str::limit( $post->body, 50)}}</td>
                                 <td>
                                     @if ($post->status === App\Enums\GenericStatus::enabled())
                                     <span class="badge rounded-pill bg-success">{{$post->status}}</span>

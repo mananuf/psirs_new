@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-6">
                             <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$directorates->count()}}</span></h3>
+                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$directoratesCount}}</span></h3>
                                 <p class="text-muted mb-1 text-truncate">{{__('Directorates')}}</p>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-6">
                             <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$images->count()}}</span></h3>
+                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$imagesCount}}</span></h3>
                                 <p class="text-muted mb-1 text-truncate">{{__('Images')}}</p>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-6">
                             <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$posts->count()}}</span></h3>
+                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$postsCount}}</span></h3>
                                 <p class="text-muted mb-1 text-truncate">{{__('Posts')}}</p>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="col-6">
                             <div class="text-end">
-                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$users->count()}}</span></h3>
+                                <h3 class="text-dark mt-1"><span data-plugin="counterup">{{$usersCount}}</span></h3>
                                 <p class="text-muted mb-1 text-truncate">{{__('Users')}}</p>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                             <div class="row mt-3">
                                 <div class="col-4">
                                     <p class="text-muted font-15 mb-1 text-truncate">{{__('All')}}</p>
-                                    <h4><i class="fe-arrow-down text-danger me-1"></i>{{$users->count()}}</h4>
+                                    <h4><i class="fe-arrow-down text-danger me-1"></i>{{$usersCount}}</h4>
                                 </div>
                                 <div class="col-4">
                                     <p class="text-muted font-15 mb-1 text-truncate">{{__('Staff')}}</p>
@@ -182,7 +182,7 @@
     
     
     <div class="row">
-        @if ($directorates->count() > 0)
+        @if ($directoratesCount > 0)
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body">
@@ -229,7 +229,7 @@
                 </div> <!-- end card-->
             </div> <!-- end col-->
         @endif
-        @if ($posts->count() > 0)
+        @if ($postsCount > 0)
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body">
@@ -283,7 +283,7 @@
         @endif
     {{-- </div>
     <div class="row"> --}}
-        @if ($images->count() > 0)
+        @if ($imagesCount > 0)
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body">
