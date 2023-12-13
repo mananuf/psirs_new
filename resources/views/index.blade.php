@@ -322,7 +322,7 @@
                                     <h4><a href="blog-details.html">{{$post->title}}</a></h4>
                                     <p>{{Str::limit($post->body, 35)}}
                                     </p>
-                                    <a class="read-more-btn" href="blog-details.html">Read More</a>
+                                    <a class="read-more-btn" href="{{route('posts.show', $post)}}">Read More</a>
                                 </div>
                             </div>
                         </div>

@@ -22,7 +22,12 @@ Route::prefix('admin')->as('admin.')->group(function () {
     });
 });
 
-Route::get('directorate/{directorate}', [PagesController::class, 'directorate'])->name('show.directorate');
+Route::controller(PagesController::class)->group(function () {
+    Route::get('directorate/{directorate}',  'directorate')->name('show.directorate');
+    Route::get('posts',  'posts')->name('posts.index');
+    Route::get('show/post/{post}',  'showPost')->name('posts.show');
+});
+
 Route::controller(TaxCalculatorController::class)->prefix('tax-calculator')->group(function () {
     Route::get('/', 'index')->name('individual.tax-calculator');
     Route::post('/calculate', 'calculate')->name('calculate.tax');

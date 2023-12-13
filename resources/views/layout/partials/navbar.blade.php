@@ -21,7 +21,7 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item ">
-                            <a href="#" class="nav-link active">{{__('Home')}}</a>
+                            <a href="{{route('home')}}" class="nav-link @if (request()->routeIs('home'))active @endif">{{__('Home')}}</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">{{__('About Us')}}</a>
@@ -33,13 +33,13 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">{{__('Directorate')}}</a>
                             @php
-                                $directorates = \App\Models\Directorate::with('media')->orderBy('title', 'ASC')->get();
+                            $directorates = \App\Models\Directorate::with('media')->orderBy('title', 'ASC')->get();
                             @endphp
+                            <a href="#" class="nav-link dropdown-toggle">{{__('Directorate')}}</a>
                             <ul class="dropdown-menu">
                                 @foreach ($directorates as $directorate)
-                                    <li class="nav-item"><a href="{{route('show.directorate', $directorate)}}" class="nav-link">{{$directorate->title}}</a></li>
+                                    <li class="nav-item @if (request()->routeIs('show.directorate', $directorate))active @endif"><a href="{{route('show.directorate', $directorate)}}" class="nav-link">{{$directorate->title}}</a></li>
                                 @endforeach
                                 <li class="nav-item">
                                     <a href="#" class="nav-link dropdown-toggle">{{__('Units')}}</a>
@@ -61,9 +61,9 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link dropdown-toggle">{{__('Tax Calculator')}} </a>
+                            <a href="#" class="nav-link dropdown-toggle @if (request()->routeIs('individual.tax-calculator'))active @endif">{{__('Tax Calculator')}} </a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="{{route('individual.tax-calculator')}}" class="nav-link">{{__('Individual Calculator')}}</a></li>
+                                <li class="nav-item @if (request()->routeIs('individual.tax-calculator'))active @endif"><a href="{{route('individual.tax-calculator')}}" class="nav-link">{{__('Individual Calculator')}}</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">{{__('Organization Mandate')}}</a></li>
                             </ul>
                         </li>
@@ -76,11 +76,11 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Career</a></li>
+                        <li class="nav-item @if (request()->routeIs('posts.index')) active @endif"><a href="{{route('posts.index')}}" class="nav-link @if (request()->routeIs('posts.index')) active @endif">Blog</a></li>
                     </ul>
                     <div class="menu-sidebar">
                         <ul>
-                            {{-- <li><button class="popup-button"><i class="fas fa-search"></i></button></li> --}}
-                            <li><a class="default-button" href="contact.html">Get in Touch</a></li>
+                            <li><a class="default-button" href="#" style="font-size: 12px">Get in Touch</a></li>
                         </ul>
                     </div>
                 </div>
