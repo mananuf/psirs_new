@@ -34,9 +34,13 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link dropdown-toggle">{{__('Directorate')}}</a>
+                            @php
+                                $directorates = \App\Models\Directorate::with('media')->orderBy('title', 'ASC')->get();
+                            @endphp
                             <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="#" class="nav-link">{{__('Admin & Personnel Mgt.')}}</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">{{__('Tax Academy')}}</a></li>
+                                @foreach ($directorates as $directorate)
+                                    <li class="nav-item"><a href="{{route('show.directorate', $directorate)}}" class="nav-link">{{$directorate->title}}</a></li>
+                                @endforeach
                                 <li class="nav-item">
                                     <a href="#" class="nav-link dropdown-toggle">{{__('Units')}}</a>
                                     <ul class="dropdown-menu">

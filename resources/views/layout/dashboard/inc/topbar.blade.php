@@ -39,14 +39,14 @@
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item">
                         <i class="fa fa-user me-1"></i>
-                        <span>{{__('Create Users')}}</span>
+                        <span>{{__('New User')}}</span>
                     </a>
 
                     <!-- item-->
-                    {{-- <a href="javascript:void(0);" class="dropdown-item">
-                        <i class="fa fa-bar-chart me-1"></i>
-                        <span>Revenue Report</span>
-                    </a> --}}
+                    <a href="{{route('admin.posts.create')}}" class="dropdown-item">
+                        <i class="fa fa-comment me-1"></i>
+                        <span>{{('New Post')}}</span>
+                    </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item">

@@ -299,66 +299,34 @@
             </div>
             <div class="section-content">
                 <div class="row justify-content-center">
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="blog-card">
-                            <div class="blog-card-img">
-                                <a href="blog-details.html"><img src="{{asset('images/blog/b1.jpg')}}" alt="image"></a>
-                            </div>
-                            <div class="blog-card-text-area">
-                                <div class="blog-date">
-                                    <ul>
-                                        <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
-                                        <li><i class="far fa-comments"></i> No Comment</li>
-                                        <li><i class="far fa-calendar-alt"></i> 01 Nov 2022</li>
-                                    </ul>
+                    @foreach ($blogPosts as $post)
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="blog-card">
+                                <div class="blog-card-img">
+                                    @php
+                                    $postImage = $post->media ?
+                                    str_replace('/Users/mac/Documents/psirs-new/storage/app/public/', 'storage/',
+                                    $post->getFirstMediaPath('post_image'))
+                                    : 'images/avatar.jpg';
+                                    @endphp
+                                    <a href="blog-details.html"><img src="{{asset($postImage)}}" class="card-img-top" style="height:20rem; object-fit:cover" alt="image"></a>
                                 </div>
-                                <h4><a href="blog-details.html">Tax Week</a></h4>
-                                <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.
-                                </p>
-                                <a class="read-more-btn" href="blog-details.html">Read More</a>
+                                <div class="blog-card-text-area">
+                                    <div class="blog-date">
+                                        <ul>
+                                            <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
+                                            <li><i class="far fa-comments"></i> No Comment</li>
+                                            <li><i class="far fa-calendar-alt"></i> {{now()->parse($post->created_at)->format('M d, Y')}}</li>
+                                        </ul>
+                                    </div>
+                                    <h4><a href="blog-details.html">{{$post->title}}</a></h4>
+                                    <p>{{Str::limit($post->body, 35)}}
+                                    </p>
+                                    <a class="read-more-btn" href="blog-details.html">Read More</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="blog-card">
-                            <div class="blog-card-img">
-                                <a href="blog-details.html"><img src="{{asset('images/blog/b2.jpg')}}" alt="image"></a>
-                            </div>
-                            <div class="blog-card-text-area">
-                                <div class="blog-date">
-                                    <ul>
-                                        <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
-                                        <li><i class="far fa-comments"></i> No Comment</li>
-                                        <li><i class="far fa-calendar-alt"></i> 02 Nov 2022</li>
-                                    </ul>
-                                </div>
-                                <h4><a href="blog-details.html">Tax Week</a></h4>
-                                <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.
-                                </p>
-                                <a class="read-more-btn" href="blog-details.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="blog-card">
-                            <div class="blog-card-img">
-                                <a href="blog-details.html"><img src="{{asset('images/blog/b3.jpg')}}" alt="image"></a>
-                            </div>
-                            <div class="blog-card-text-area">
-                                <div class="blog-date">
-                                    <ul>
-                                        <li><i class="fas fa-user"></i> By <a href="posted-by.html">Admin</a></li>
-                                        <li><i class="far fa-comments"></i> No Comment</li>
-                                        <li><i class="far fa-calendar-alt"></i> 03 Nov 2022</li>
-                                    </ul>
-                                </div>
-                                <h4><a href="blog-details.html">Tax Week</a></h4>
-                                <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.
-                                </p>
-                                <a class="read-more-btn" href="blog-details.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

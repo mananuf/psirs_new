@@ -244,14 +244,19 @@
                                         <th class="border-top-0">{{__('Added Date')}}</th>
                                         <th class="border-top-0">{{__('Added By')}}</th>
                                         <th class="border-top-0">{{__('Status')}}</th>
-                                        <th class="border-top-0">{{__('Action')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($posts as $post)
                                         <tr>
                                             <td>
-                                                <img src="{{asset('dashboard/images/products/product-1.png')}}" alt="product-pic" height="36" />
+                                                @php
+                                                $postImage = $post->media ?
+                                                str_replace('/Users/mac/Documents/psirs-new/storage/app/public/', 'storage/',
+                                                $post->getFirstMediaPath('post_image'))
+                                                : 'images/avatar.jpg';
+                                                @endphp
+                                                <img src={{asset($postImage)}} alt="user-pic" height="36" class="rounded-circle avatar-sm bx-shadow-lg" />
                                                 <span class="ms-2">{{Str::limit($post->title, 20)}}</span>
                                             </td>
                                             <td>
@@ -259,10 +264,13 @@
                                             </td>
                                             <td>{{now()->parse($post->created_at)->format('M d Y')}}</td>
                                             <td>{{__('User')}}</td>
-                                            <td><span class="badge bg-soft-success text-success">Active</span></td>
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-eye"></i></a>
+                                                @if ($post->status === \App\Enums\GenericStatus::enabled())
+                                                <span class="badge rounded-pill bg-success">{{__('Enabled')}}</span>
+                                                @endif
+                                                @if ($post->status === \App\Enums\GenericStatus::disabled())
+                                                <span class="badge rounded-pill bg-danger">{{__('Disabled')}}</span>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
