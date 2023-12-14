@@ -70,7 +70,7 @@
                                     <img src={{asset($postImage)}} alt="user-pic"
                                         class="rounded-circle avatar-sm bx-shadow-lg" />
                                 </td>
-                                <td>{{Str::limit( $post->body, 50)}}</td>
+                                <td>{!! Str::limit(strip_tags(html_entity_decode($post->body)), 50) !!}</td>
                                 <td>
                                     @if ($post->status === App\Enums\GenericStatus::enabled())
                                     <span class="badge rounded-pill bg-success">{{$post->status}}</span>

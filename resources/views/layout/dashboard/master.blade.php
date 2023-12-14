@@ -28,6 +28,7 @@
     <!-- App css -->
     <link href="{{asset('dashboard/css/app.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{asset('css/ckeditor.css')}}">
 
     <!-- Icons css -->
     <link href="{{asset('dashboard/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
@@ -36,8 +37,6 @@
     <link href="https://coderthemes.com/ubold/layouts/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
     <link href="https://coderthemes.com/ubold/layouts/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
     <link href="https://coderthemes.com/ubold/layouts/assets/libs/dropify/css/dropify.min.css" rel="stylesheet"type="text/css" />
-    <!-- summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -133,12 +132,9 @@
     <script src="{{asset('dashboard/js/pages/dashboard-2.init.js')}}"></script>
     <script src="{{asset('dashboard/js/pages/form-fileuploads.init.js')}}"></script>
     <script src="{{asset('dashboard/js/pages/form-quilljs.init.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-                  $('.summernote').summernote();
-                });
-    </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
+    <script src="{{asset('js/ck-editor.js')}}"></script>
+
 </body>
 
 

@@ -23,7 +23,7 @@
               <div class="mb-3">
                 <label for="product-description" class="form-label">{{__('Directorate Description')}} <span
                     class="text-danger">*</span></label>
-                <textarea class="summernote" style="height: 150px;" name="body"></textarea> <!-- end Snow-editor-->
+                <textarea id="editor" style="height: 150px;" name="body"></textarea> <!-- end Snow-editor-->
               </div>
               <div class="mb-3">
                 <label class="mb-2">{{__('Status')}} <span class="text-danger">*</span></label>

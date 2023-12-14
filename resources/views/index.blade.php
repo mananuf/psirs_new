@@ -28,15 +28,12 @@
         </div>
     </section>
     {{-- About Us --}}
-    <section class="about pt-100">
-        <div class="shape">
-            <img src="{{asset('images/about/shape.png')}}" alt="image">
-        </div>
+    <section class="about pt-100 overflow-hidden">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="about-img-3">
-                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-none d-md-block">
+                    <div class="about-img-section">
+                        <img src="{{asset('images/psirs/team1.jpg')}}" class="img-fluid" alt="image">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -65,6 +62,11 @@
                                     shall be 1% less the actual tax computed.')}}</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-block d-md-none mt-5">
+                    <div class="about-img-section">
+                        <img src="{{asset('images/psirs/team1.jpg')}}" class="img-fluid" alt="image">
                     </div>
                 </div>
             </div>
@@ -97,9 +99,14 @@
         </div>
     </section>
     {{-- Filing Your Returns Online --}}
-    <section class="about ptb-100">
+    <section class="about ptb-100 overflow-hidden">
         <div class="container">
             <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-block d-md-none">
+                    <div class="about-img-section">
+                        <img src="{{asset('images/file_returns.jpg')}}" class="img-fluid rounded" alt="image">
+                    </div>
+                </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="why-we-text-area about-text-area-2 pl-20">
                         <div class="default-section-title">
@@ -123,9 +130,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="about-img-3">
-                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-none d-md-block">
+                    <div class="about-img-section">
+                        <img src="{{asset('images/file_returns.jpg')}}" class="img-fluid rounded" alt="image">
                     </div>
                 </div>
             </div>
@@ -136,8 +143,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="about-img-3">
-                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                    <div class="about-img-section">
+                        <img src="{{asset('images/obtain_tcc.jpg')}}" class="img-fluid rounded" alt="image">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -171,6 +178,11 @@
     <section class="about ptb-100">
         <div class="container">
             <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-block d-md-none">
+                    <div class="about-img-section">
+                        <img src="{{asset('images/view_taxable_items.jpg')}}" class="img-fluid rounded" alt="image">
+                    </div>
+                </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="why-we-text-area about-text-area-2 pl-20">
                         <div class="default-section-title">
@@ -191,67 +203,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="about-img-3">
-                        <img src="{{asset('images/banner/psirs-bg-3.jpg')}}" alt="image">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-none d-md-block">
+                    <div class="about-img-section">
+                        <img src="{{asset('images/view_taxable_items.jpg')}}" class="img-fluid rounded" alt="image">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    {{-- <section class="services ptb-100">
-    <div class="container">
-    <div class="default-section-title default-section-title-middle">
-    <h3>Find Government Services</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
-    </div>
-    <div class="section-content">
-    <div class="row justify-content-center">
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="service-card">
-    <div class="service-card-img">
-    <a href="service-detaisl.html"><img src="{{asset('images/service/s1.jpg')}}" alt="image"></a>
-    <i class="flaticon-balance"></i>
-    </div>
-    <div class="service-card-text">
-    <h4><a href="service-details.html">Salty And The Law</a></h4>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.</p>
-    <a class="read-more-btn" href="service-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="service-card">
-    <div class="service-card-img">
-    <a href="service-detaisl.html"><img src="{{asset('images/service/s2.jpg')}}" alt="image"></a>
-    <i class="flaticon-delivery"></i>
-    </div>
-    <div class="service-card-text">
-    <h4><a href="service-details.html">Travel & Immigration</a></h4>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.</p>
-    <a class="read-more-btn" href="service-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-    <div class="service-card">
-    <div class="service-card-img">
-    <a href="service-detaisl.html"><img src="{{asset('images/service/s3.jpg')}}" alt="image"></a>
-    <i class="flaticon-portfolio"></i>
-    </div>
-    <div class="service-card-text">
-    <h4><a href="service-details.html">Business Services</a></h4>
-    <p>Lorem ipsum dolor amet magna set dolor sit amet consectetur adipiscing do elite labore.</p>
-    <a class="read-more-btn" href="service-details.html">Read More</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section> --}}
-
 
     <div class="mt-5">
         <section class="fun-facts pt-70 pb-100 bg-f9fbfe">
@@ -294,8 +253,8 @@
         <div class="container">
             <div class="default-section-title default-section-title-middle mt-10">
                 <h3>Latest News & Updates</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua quis ipsum suspendisse</p>
+                <p>{{__('Discover the most recent developments, updates, and important announcements from the Plateau State Internal Revenue
+                Service (PSIRS).')}}</p>
             </div>
             <div class="section-content">
                 <div class="row justify-content-center">
@@ -309,7 +268,7 @@
                                     $post->getFirstMediaPath('post_image'))
                                     : 'images/avatar.jpg';
                                     @endphp
-                                    <a href="blog-details.html"><img src="{{asset($postImage)}}" class="card-img-top" style="height:20rem; object-fit:cover" alt="image"></a>
+                                    <a href="blog-details.html"><img src="{{asset($postImage)}}" class="card-img-top rounded" style="height:20rem; object-fit:cover" alt="image"></a>
                                 </div>
                                 <div class="blog-card-text-area">
                                     <div class="blog-date">
@@ -320,7 +279,8 @@
                                         </ul>
                                     </div>
                                     <h4><a href="blog-details.html">{{$post->title}}</a></h4>
-                                    <p>{{Str::limit($post->body, 35)}}
+                                    <p>
+                                        {!!Str::limit(strip_tags(html_entity_decode($post->body)), 80) !!}
                                     </p>
                                     <a class="read-more-btn" href="{{route('posts.show', $post)}}">Read More</a>
                                 </div>
@@ -336,8 +296,8 @@
         <div class="container">
             <div class="default-section-title default-section-title-middle">
                 <h3>Get In Touch</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua quis ipsum suspendisse</p>
+                <p>{{__('Your concerns matter to us, and we are dedicated to providing prompt and helpful responses. Let\'s collaborate for a
+                seamless and efficient experience.')}}</p>
             </div>
             <div class="section-content">
                 <div class="row">

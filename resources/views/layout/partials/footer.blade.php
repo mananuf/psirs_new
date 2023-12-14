@@ -5,7 +5,8 @@
 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
 <div class="footer-logo-area">
 <a href="{{route('home')}}"><img src="{{asset('images/psirs-logo.png')}}" class="logo-w-35" alt="image"></a>
-<p>Lorem ipsum dolor sit amet, consec tetur adipiscing elit tempor incididunt labore dolore magna aliqua consec tetur adipiscing elite sed do labor.</p>
+<p>{{__('A leading Internal Revenue Service where teamwork and professionalism are combined to maximize revenue generation for
+the development of the state.')}}</p>
 <div class="footer-social-area">
 <ul>
 <li><span>Follow Us: </span></li>

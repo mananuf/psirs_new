@@ -81,7 +81,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Career</a></li>
-                        <li class="nav-item @if (request()->routeIs('posts.index')) active @endif"><a href="{{route('posts.index')}}" class="nav-link @if (request()->routeIs('posts.index')) active @endif">Blog</a></li>
+                        <li class="nav-item @if (request()->routeIs('posts.index')) active @endif"><a href="{{route('posts.index')}}" class="nav-link @if (request()->routeIs('posts.index')) active @endif">News</a></li>
                     </ul>
                     <div class="menu-sidebar">
                         <ul>

@@ -12,6 +12,8 @@
                                     str_replace('/Users/mac/Documents/psirs-new/storage/app/public/', 'storage/',
                                     $post->getFirstMediaPath('post_image'))
                                     : 'images/avatar.jpg';
+
+                                    $content = html_entity_decode($post->body);
                                 @endphp
                                 <a href="{{route('posts.show', $post)}}"><img src="{{asset($postImage)}}" style="height: 20rem" alt="image"></a>
                             </div>
@@ -24,7 +26,7 @@
                                     </ul>
                                 </div>
                                 <h4><a href="{{route('posts.show', $post)}}">{{$post->title}}</a></h4>
-                                <p>{{Str::limit($post->body, 80)}}</p>
+                                <p>{!!Str::limit(strip_tags($content), 80) !!}</p>
                                 <a class="read-more-btn" href="{{route('posts.show', $post)}}">Read More</a>
                             </div>
                         </div>

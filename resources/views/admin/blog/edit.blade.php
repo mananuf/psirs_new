@@ -18,7 +18,7 @@
           <div class="mb-3">
             <label for="product-description" class="form-label">{{__('Post Content')}} <span
                 class="text-danger">*</span></label>
-            <textarea style="height: 150px;" name="body" class="w-100 form-control">
+            <textarea style="height: 150px;" name="body" id="editor" class="w-100 form-control">
               {{$post->body}}
             </textarea>
           </div>
