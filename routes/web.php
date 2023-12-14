@@ -13,7 +13,7 @@ Route::get('/', MainController::class)->name('home');
 
 Auth::routes();
 
-Route::prefix('admin')->as('admin.')->group(function () {
+Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
     Route::resource('directorates', DirectorateController::class);
     Route::resource('posts', BlogController::class);
 

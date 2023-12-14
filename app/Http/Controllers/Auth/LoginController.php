@@ -29,12 +29,7 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     public function redirectTo()
     {
-        if(auth()->user()->is_superAdmin == false){
-
-            return RouteServiceProvider::HOME;
-
-        }
-        RouteServiceProvider::HOME;
+        return redirect()->route('admin.dashboard.index')->with('success', 'Welcome to PSIRS');
     }
 
     /**

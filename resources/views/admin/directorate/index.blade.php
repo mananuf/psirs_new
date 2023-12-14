@@ -27,7 +27,7 @@
                     <div class="col-md-4">
                         <div class="text-md-end mt-3 mt-md-0">
                             <a href="{{route('admin.directorates.create')}}" 
-                            class="btn dark-green-bg waves-effect waves-light"
+                            class="btn dark-green-btn waves-effect waves-light"
                             >
                             <i class="mdi mdi-plus-circle me-1"></i> {{__('Add New')}}
                         </a>

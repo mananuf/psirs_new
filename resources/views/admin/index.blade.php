@@ -260,7 +260,7 @@
                                                 <span class="ms-2">{{Str::limit($post->title, 20)}}</span>
                                             </td>
                                             <td>
-                                                {{Str::limit($post->body, 20)}}
+                                                {{Str::limit(strip_tags($post->body), 20)}}
                                             </td>
                                             <td>{{now()->parse($post->created_at)->format('M d Y')}}</td>
                                             <td>{{__('User')}}</td>

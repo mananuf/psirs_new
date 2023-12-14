@@ -29,6 +29,16 @@
     color: #fff;
 }
 
+.dark-green-btn {
+    background-color: #01592a;
+    color: #fff;
+}
+
+.dark-green-btn:hover {
+    border: 1px solid #01592a;
+    color: #01592a;
+}
+
 .dark-green-text {
     color: #01592a;
 }
